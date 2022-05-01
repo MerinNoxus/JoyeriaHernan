@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.HBox?>
+
+<HBox alignment="TOP_CENTER" prefHeight="22.0" prefWidth="485.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <MenuBar nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="493.0">
+         <menus>
+            <Menu mnemonicParsing="false" onAction="#RegistroCli" text="Registros de Clientes" />
+            <Menu mnemonicParsing="false" onAction="#RegistroPro" text="Registro de Productos" />
+            <Menu mnemonicParsing="false" onAction="#RegistroCliFre" text="Registro de clientes Frecuentes" />
+         </menus>
+         <HBox.margin>
+            <Insets top="50.0" />
+         </HBox.margin>
+      </MenuBar>
+   </children>
+   <effect>
+      <DropShadow />
+   </effect>
+</HBox>

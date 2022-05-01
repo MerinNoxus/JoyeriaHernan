@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.GaussianBlur?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="357.0" prefWidth="518.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane prefHeight="400.0" prefWidth="603.0">
+         <children>
+            <Label alignment="CENTER" layoutX="82.0" layoutY="263.0" prefHeight="46.0" prefWidth="355.0" text="Joyería Hernández" textFill="#363636">
+               <font>
+                  <Font name="Lucida Bright Regular" size="36.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="80.0" layoutY="309.0" prefHeight="37.0" prefWidth="378.0" text="Preparadas para cualquier ocasión" textFill="#363636">
+               <font>
+                  <Font name="Lucida Bright Italic" size="21.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="185.0" fitWidth="336.0" layoutX="80.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/LOGO.png" />
+               </image>
+               <effect>
+                  <GaussianBlur radius="1.75" />
+               </effect>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</HBox>

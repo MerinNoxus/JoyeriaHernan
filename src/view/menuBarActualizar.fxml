@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.menuBarActualizarController">
+   <children>
+      <BorderPane fx:id="border" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="618.0" style="-fx-background-color: transparent;">
+         <top>
+            <HBox alignment="TOP_CENTER" prefHeight="48.0" prefWidth="750.0" spacing="80.0" BorderPane.alignment="TOP_CENTER">
+               <padding>
+                  <Insets left="80.0" />
+               </padding>
+               <children>
+                  <Button fx:id="btnOro" mnemonicParsing="false" onMouseClicked="#getOro" prefHeight="42.0" prefWidth="114.0" style="-fx-background-color: transparent;" styleClass="menubaractualizarprecios1" stylesheets="@../CSS/StyleActualizarPrecios.css" text="Oro">
+                     <graphic>
+                        <ImageView fitHeight="32.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Imagenes/icons8_one_ring_48px.png" />
+                           </image></ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="btnPlata" mnemonicParsing="false" prefHeight="42.0" prefWidth="114.0" style="-fx-background-color: transparent;" styleClass="menubaractualizarprecios2" stylesheets="@../CSS/StyleActualizarPrecios.css" text="Plata">
+                     <graphic>
+                        <ImageView fitHeight="32.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Imagenes/icons8_silver_ring_48px.png" />
+                           </image></ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="btnTodos" mnemonicParsing="false" onMouseClicked="#getTodo" prefHeight="42.0" prefWidth="114.0" style="-fx-background-color: transparent;" styleClass="menubaractualizarprecios4" stylesheets="@../CSS/StyleActualizarPrecios.css" text="Todos">
+                     <graphic>
+                        <ImageView fitHeight="32.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Imagenes/icons8_bluestacks_48px.png" />
+                           </image></ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </HBox>
+         </top>
+         <center>
+            <StackPane fx:id="satck" prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
+   </children>
+</StackPane>

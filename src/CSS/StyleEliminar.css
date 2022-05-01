@@ -1,0 +1,29 @@
+.menubareliminar1:hover {
+    -fx-border-color: #660099;
+    -fx-border-width: 0px 0px 3px 0px;
+}
+
+.menubareliminar2:hover {
+    -fx-border-color: #ffff33;
+    -fx-border-width: 0px 0px 3px 0px;
+}
+
+.menubareliminar3:hover {
+    -fx-border-color: #ff0000;
+    -fx-border-width: 0px 0px 3px 0px;
+}
+
+.menubareliminar4:hover {
+    -fx-border-color: #0000ff;
+    -fx-border-width: 0px 0px 3px 0px;
+}
+
+.menubareliminar5:hover {
+    -fx-border-color: #ff66ff;
+    -fx-border-width: 0px 0px 3px 0px;
+}
+
+.menubareliminar6:hover {
+    -fx-border-color: #009999;
+    -fx-border-width: 0px 0px 3px 0px;
+}

@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.GaussianBlur?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="BP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="720.0" prefWidth="1160.0" style="-fx-background-color: #8D96FD;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MenuBienController">
+   <top>
+      <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="942.0" style="-fx-background-color: #8D96FD;">
+         <children>
+            <VBox layoutX="-3.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="56.0" prefWidth="939.0">
+               <children>
+                                <fx:include source="title_bar.fxml" />
+               </children>
+                                </VBox>
+            
+            
+         </children>
+      </Pane>
+   </top>
+   <left>
+      <Pane id="menuslide" prefHeight="556.0" prefWidth="174.0" style="-fx-background-color: #FF6E5C;" styleClass="menuslide" stylesheets="@../CSS/styles.css" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: transparent;">
+               <children>
+                  <VBox prefHeight="486.0" prefWidth="44.0">
+                     <children>
+                        <ImageView fitHeight="43.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Imagenes/icons8_home_48px.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets top="30.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <ImageView fitHeight="37.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Imagenes/icons8_renew_48px.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets top="30.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <ImageView fitHeight="37.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Imagenes/icons8_order_history_48px.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets top="30.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <ImageView fitHeight="68.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Imagenes/icons8_Transaction_48px.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets top="30.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <ImageView fitHeight="71.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Imagenes/icons8_inquiry_40px.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets top="30.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <ImageView fitHeight="48.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Imagenes/icons8_agreement_48px_1.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets top="30.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <ImageView fitHeight="41.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Imagenes/icons8_Remove_48px.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets top="40.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <ImageView fitHeight="33.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Imagenes/icons8_info_48px.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets top="30.0" />
+                           </VBox.margin>
+                        </ImageView>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="294.0" prefWidth="138.0">
+                     <children>
+                        <JFXButton alignment="BOTTOM_LEFT" onMouseClicked="#home" prefHeight="28.0" prefWidth="123.0" ripplerFill="#219fff" text="Escritorio" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets top="40.0" />
+                           </VBox.margin>
+                           <effect>
+                              <Bloom threshold="0.73" />
+                           </effect>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                        <JFXButton alignment="BOTTOM_LEFT" onMouseClicked="#update" prefHeight="28.0" prefWidth="121.0" ripplerFill="#219fff" text="Actualizar precios" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets top="40.0" />
+                           </VBox.margin>
+                           <effect>
+                              <Bloom threshold="0.73" />
+                           </effect>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                        <JFXButton alignment="BOTTOM_LEFT" onMouseClicked="#registros" prefHeight="25.0" prefWidth="210.0" ripplerFill="#219fff" text="Registros" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets top="40.0" />
+                           </VBox.margin>
+                           <effect>
+                              <Bloom threshold="0.73" />
+                           </effect>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                        <JFXButton alignment="BOTTOM_LEFT" onMouseClicked="#movet" prefHeight="25.0" prefWidth="204.0" ripplerFill="#219fff" text="Movimientos" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets top="40.0" />
+                           </VBox.margin>
+                           <effect>
+                              <Bloom threshold="0.73" />
+                           </effect>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                        <JFXButton alignment="BOTTOM_LEFT" onMouseClicked="#consultas" prefHeight="25.0" prefWidth="199.0" ripplerFill="#219fff" text="Consultas" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets top="40.0" />
+                           </VBox.margin>
+                           <effect>
+                              <Bloom threshold="0.73" />
+                           </effect>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                        <JFXButton alignment="BOTTOM_LEFT" onMouseClicked="#reports" prefHeight="25.0" prefWidth="213.0" ripplerFill="#219fff" text="Reportes" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets top="40.0" />
+                           </VBox.margin>
+                           <effect>
+                              <Bloom threshold="0.73" />
+                           </effect>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                        <JFXButton alignment="BOTTOM_LEFT" onMouseClicked="#delete" prefHeight="28.0" prefWidth="123.0" ripplerFill="#219fff" text="Eliminar" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
+                           <effect>
+                              <Bloom threshold="0.73" />
+                           </effect>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <VBox.margin>
+                              <Insets top="50.0" />
+                           </VBox.margin>
+                        </JFXButton>
+                        <JFXButton alignment="BOTTOM_LEFT" onMouseClicked="#contacs" prefHeight="25.0" prefWidth="204.0" ripplerFill="#219fff" text=" Contacto" textFill="WHITE">
+                           <font>
+                              <Font name="Calibri Bold" size="15.0" />
+                           </font>
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets top="40.0" />
+                           </VBox.margin>
+                           <effect>
+                              <Bloom threshold="0.73" />
+                           </effect>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+         <effect>
+            <DropShadow blurType="ONE_PASS_BOX" color="#403f3f" height="40.09" offsetX="0.5" offsetY="2.0" radius="19.16" spread="0.42" width="38.55" />
+         </effect>
+      </Pane>
+   </left>
+   <center>
+      <AnchorPane fx:id="AP" prefHeight="549.0" prefWidth="762.0">
+         <children>
+            <ImageView fitHeight="324.0" fitWidth="560.0" layoutX="150.0" layoutY="132.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/LOGO.png" />
+               </image>
+               <effect>
+                  <GaussianBlur radius="4.75" />
+               </effect>
+            </ImageView>
+            <Label layoutX="261.0" layoutY="536.0" text="Preparadas para cualquier ocasión">
+               <font>
+                  <Font name="Lucida Bright Regular" size="24.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="283.0" layoutY="475.0" text="Joyería Hernández">
+               <font>
+                  <Font name="Lucida Bright Regular" size="38.0" />
+               </font>
+            </Label>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <padding>
+            <Insets bottom="100.0" left="100.0" right="100.0" top="100.0" />
+         </padding>
+      </AnchorPane>
+   </center>
+   <effect>
+      <DropShadow />
+   </effect>
+</BorderPane>

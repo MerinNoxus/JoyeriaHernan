@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.GaussianBlur?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="696.0" prefWidth="976.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LoginRealController">
+    <children>
+        <StackPane AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+            <effect>
+                <DropShadow />
+            </effect>
+            <children>
+                <HBox prefHeight="150.0" prefWidth="351.0">
+                    <children>
+                        <VBox prefHeight="676.0" prefWidth="0.0" style="-fx-background-color: #FF6E5C;" HBox.hgrow="ALWAYS" />
+                        <VBox prefHeight="480.0" prefWidth="370.0" style="-fx-background-color: #8D96FD;" HBox.hgrow="ALWAYS">
+                            <children>
+                                <fx:include source="title_bar.fxml" />
+                      
+                                </children>
+                                </VBox>
+                    </children>
+                </HBox>
+                <VBox alignment="CENTER" prefHeight="524.0" prefWidth="791.0">
+                    <children>
+                        <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="481.0" prefWidth="775.0" style="-fx-background-color: #FF6E5C;">
+                            <effect>
+                                <DropShadow />
+                            </effect>
+                     <children>
+                        <HBox prefHeight="380.0" prefWidth="754.0">
+                           <children>
+                              <Pane prefHeight="360.0" prefWidth="400.0">
+                                 <children>
+                                    <ImageView fitHeight="191.0" fitWidth="427.0" layoutX="28.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Imagenes/LOGO.png" />
+                                       </image>
+                                       <effect>
+                                          <GaussianBlur radius="2.5" />
+                                       </effect>
+                                    </ImageView>
+                                    <Label alignment="CENTER" layoutX="28.0" layoutY="226.0" prefHeight="46.0" prefWidth="355.0" text="Joyería Hernández">
+                                       <font>
+                                          <Font name="Lucida Bright Regular" size="36.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" layoutX="9.0" layoutY="286.0" prefHeight="37.0" prefWidth="378.0" text="Preparadas para cualquier ocasión">
+                                       <font>
+                                          <Font name="Lucida Bright Italic" size="21.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Pane>
+                              <Pane prefHeight="380.0" prefWidth="347.0" styleClass="txts" stylesheets="@../CSS/styles.css">
+                                 <children>
+                                    <Label layoutX="46.0" layoutY="14.0" text="Iniciar Sesión" textFill="WHITE">
+                                       <font>
+                                          <Font name="Arial" size="43.0" />
+                                       </font>
+                                       <effect>
+                                          <Lighting diffuseConstant="1.67">
+                                             <bumpInput>
+                                                <Shadow />
+                                             </bumpInput>
+                                             <light>
+                                                <Light.Distant />
+                                             </light>
+                                          </Lighting>
+                                       </effect>
+                                    </Label>
+                                    <JFXTextField fx:id="txtUsuario" focusColor="#f6bba7" labelFloat="true" layoutX="67.0" layoutY="101.0" prefHeight="25.0" prefWidth="267.0" promptText="Usuario" unFocusColor="WHITE">
+                                       <font>
+                                          <Font name="Segoe UI Black" size="17.0" />
+                                       </font>
+                                    </JFXTextField>
+                                    <ImageView fitHeight="36.0" fitWidth="31.0" layoutX="23.0" layoutY="106.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Imagenes/icons8_user_48px.png" />
+                                       </image>
+                                    </ImageView>
+                                    <JFXPasswordField fx:id="txtcontra" focusColor="#f6bba7" labelFloat="true" layoutX="67.0" layoutY="161.0" prefHeight="25.0" prefWidth="267.0" promptText="Contraseña" unFocusColor="#e1e1e1">
+                                       <font>
+                                          <Font name="Segoe UI Black" size="17.0" />
+                                       </font>
+                                    </JFXPasswordField>
+                                    <ImageView fitHeight="62.0" fitWidth="31.0" layoutX="14.0" layoutY="164.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Imagenes/icons8_password_100px.png" />
+                                       </image>
+                                    </ImageView>
+                                    <JFXButton fx:id="btnacceder" buttonType="RAISED" layoutX="60.0" layoutY="241.0" onAction="#Accede" prefHeight="37.0" prefWidth="230.0" ripplerFill="#4f69fc" styleClass="btnacceder" stylesheets="@../CSS/styles.css" text="Acceder">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </JFXButton>
+                                 </children>
+                              </Pane>
+                           </children>
+                        </HBox>
+                     </children>
+                        </VBox>
+                    </children>
+                    <StackPane.margin>
+                        <Insets bottom="45.0" left="45.0" right="45.0" top="45.0" />
+                    </StackPane.margin>
+                </VBox>
+            </children>
+        </StackPane>
+    </children>
+</AnchorPane>

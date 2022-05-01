@@ -1,0 +1,29 @@
+.menubarconsultas1:hover {
+    -fx-border-color: #660099;
+    -fx-border-width: 0px 0px 3px 0px;
+}
+
+.menubarconsultas2:hover {
+    -fx-border-color: #ffff33;
+    -fx-border-width: 0px 0px 3px 0px;
+}
+
+.menubarconsultas3:hover {
+    -fx-border-color: #ff0000;
+    -fx-border-width: 0px 0px 3px 0px;
+}
+
+.menubarconsultas4:hover {
+    -fx-border-color: #0000ff;
+    -fx-border-width: 0px 0px 3px 0px;
+}
+
+.menubarconsultas5:hover {
+    -fx-border-color: #00ffcc;
+    -fx-border-width: 0px 0px 3px 0px;
+}
+
+.menubarconsultas6:hover {
+    -fx-border-color: #ff9900;
+    -fx-border-width: 0px 0px 3px 0px;
+}

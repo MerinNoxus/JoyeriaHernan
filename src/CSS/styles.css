@@ -1,0 +1,39 @@
+.btnacceder{
+    -fx-border-radius: 10px;
+    -fx-background-color: #F97676;
+    
+}
+
+.AnchorPane{
+    -fx-background-radius: 18 18 18 18;
+    -fx-border-radius: 0 0 18 18;
+    -fx-border-width:5;
+    
+}
+
+.btnclose{
+    -fx-border-radius: 50px;
+    -fx-background-color: #FF4333
+    
+}
+
+.txts{
+    -fx-background-radius: 18 18 18 18;
+    -fx-border-radius: 0 0 18 18;
+     -fx-border-width:5;
+     -fx-background-color: #8D96FD;
+}
+
+.StackPane{
+      -fx-background-radius: 18 18 18 18;
+    -fx-border-radius: 0 0 18 18;
+    -fx-border-width:5;
+    
+}
+
+.menuslide{
+    -fx-background-radius: 0 18 0 0;
+    -fx-border-radius: 0 0 18 18;
+    -fx-border-width:5;
+    
+}

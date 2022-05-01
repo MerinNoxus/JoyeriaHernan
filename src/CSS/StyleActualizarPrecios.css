@@ -1,0 +1,19 @@
+.menubaractualizarprecios1:hover {
+    -fx-border-color: #660099;
+    -fx-border-width: 0px 0px 3px 0px;
+}
+
+.menubaractualizarprecios2:hover {
+    -fx-border-color: #FFFF00;
+    -fx-border-width: 0px 0px 3px 0px;
+}
+
+.menubaractualizarprecios3:hover {
+    -fx-border-color: #ff0000;
+    -fx-border-width: 0px 0px 3px 0px;
+}
+
+.menubaractualizarprecios4:hover {
+    -fx-border-color: #0000ff;
+    -fx-border-width: 0px 0px 3px 0px;
+}

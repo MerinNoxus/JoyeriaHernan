@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="604.0" prefWidth="739.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ConsultasProductosController">
+   <children>
+      <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="400.0" minWidth="400.0" prefHeight="524.0" prefWidth="811.0" style="-fx-background-color: #FF6E5C;" styleClass="AnchorPane" stylesheets="@../CSS/styles.css">
+         <children>
+            <TableView id="TvProduc" fx:id="TvProduc" layoutX="135.0" layoutY="145.0" prefHeight="445.0" prefWidth="517.0">
+               <columns>
+                  <TableColumn fx:id="colID" prefWidth="119.0" text="Código Producto" />
+                  <TableColumn fx:id="colDes" prefWidth="106.0" text="Descripción" />
+                  <TableColumn fx:id="colStock" minWidth="3.0" prefWidth="51.0" text="Stock" />
+                  <TableColumn fx:id="colCons" prefWidth="97.0" text="Construcción" />
+                  <TableColumn fx:id="colPrecio" prefWidth="73.0" text="Precio" />
+                  <TableColumn fx:id="colKila" prefWidth="79.0" text="Kila" />
+               </columns>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TableView>
+            <Label layoutX="229.0" layoutY="14.0" prefHeight="37.0" prefWidth="364.0" text="Consulta de Productos">
+               <font>
+                  <Font name="Lucida Sans Demibold" size="31.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="txtsearch" focusColor="#fcfcfc" labelFloat="true" layoutX="164.0" layoutY="71.0" onKeyReleased="#busca" prefHeight="32.0" prefWidth="444.0" promptText="Buscar Producto" unFocusColor="#9971ff">
+               <font>
+                  <Font name="Arial Bold" size="16.0" />
+               </font>
+            </JFXTextField>
+            <ImageView fitHeight="32.0" fitWidth="40.0" layoutX="110.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/icons8_search_48px.png" />
+               </image>
+            </ImageView>
+         </children>
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+      </Pane>
+   </children>
+</HBox>
