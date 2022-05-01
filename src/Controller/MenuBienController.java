@@ -40,7 +40,7 @@ private BorderPane BP;
 
     @FXML
     void movet(MouseEvent event) {
-
+ Loadpage("/view/menuBarMovimientos");
     }
 
     @FXML
@@ -50,7 +50,7 @@ private BorderPane BP;
 
     @FXML
     void reports(MouseEvent event) {
-
+ Loadpage("/view/menuBarReportes");
     }
 
     @FXML
