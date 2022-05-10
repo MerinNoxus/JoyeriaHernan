@@ -1,6 +1,6 @@
 package Model;
 
-public class RegistroProductos {
+public class Productos {
 
 
     
@@ -11,10 +11,10 @@ public class RegistroProductos {
     private double precio_inven;
     private String kila_inven;
 
-    public RegistroProductos() {
+    public Productos() {
     }
 
-    public RegistroProductos(String CP_inven, String Descripcion_inven, Integer cantidad_inven, String tipoMaterial_inven, double precio_inven, String kila_inven) {
+    public Productos(String CP_inven, String Descripcion_inven, Integer cantidad_inven, String tipoMaterial_inven, double precio_inven, String kila_inven) {
         this.CP_inven = CP_inven;
         this.Descripcion_inven = Descripcion_inven;
         this.cantidad_inven = cantidad_inven;

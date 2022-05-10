@@ -2,7 +2,7 @@ package Controller;
 
 import Alerts.Alerts;
 import Conexion.ConexionSQL;
-import Model.RegistroProductos;
+import Model.Productos;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.sql.Connection;
@@ -28,25 +28,25 @@ public class updateProductosController implements Initializable {
     ActionEvent event;
     PreparedStatement ps;
     @FXML
-    private TableView<RegistroProductos> TvProduc;
+    private TableView<Productos> TvProduc;
     
     @FXML
-    private TableColumn<RegistroProductos, String> colID;
+    private TableColumn<Productos, String> colID;
     
     @FXML
-    private TableColumn<RegistroProductos, String> colDes;
+    private TableColumn<Productos, String> colDes;
     
     @FXML
-    private TableColumn<RegistroProductos, Integer> colStock;
+    private TableColumn<Productos, Integer> colStock;
     
     @FXML
-    private TableColumn<RegistroProductos, String> colCons;
+    private TableColumn<Productos, String> colCons;
     
     @FXML
-    private TableColumn<RegistroProductos, Double> colPrecio;
+    private TableColumn<Productos, Double> colPrecio;
     
     @FXML
-    private TableColumn<RegistroProductos, String> colKila;
+    private TableColumn<Productos, String> colKila;
     
     @FXML
     private JFXTextField txtID1;
@@ -103,17 +103,17 @@ public class updateProductosController implements Initializable {
         ShowProducts();
     }
     
-    public ObservableList<RegistroProductos> getProductosList() {
+    public ObservableList<Productos> getProductosList() {
         
-        ObservableList<RegistroProductos> productosList = FXCollections.observableArrayList();
+        ObservableList<Productos> productosList = FXCollections.observableArrayList();
         
         try {
             String query = "SELECT * FROM inventarios";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(query);
-            RegistroProductos produc;
+            Productos produc;
             while (rs.next()) {
-                produc = new RegistroProductos(rs.getString("CP_inven"), rs.getString("Descripcion_inven"), rs.getInt("cantidad_inven"), rs.getString("tipoMaterial_inven"), rs.getInt("precio_inven"), rs.getString("kila_inven"));
+                produc = new Productos(rs.getString("CP_inven"), rs.getString("Descripcion_inven"), rs.getInt("cantidad_inven"), rs.getString("tipoMaterial_inven"), rs.getInt("precio_inven"), rs.getString("kila_inven"));
                 productosList.add(produc);
             }
         } catch (SQLException ex) {
@@ -124,18 +124,18 @@ public class updateProductosController implements Initializable {
     
     public void ShowProducts() {
         
-        ObservableList<RegistroProductos> list = getProductosList();
-        colID.setCellValueFactory(new PropertyValueFactory<RegistroProductos, String>("CP_inven"));
-        colDes.setCellValueFactory(new PropertyValueFactory<RegistroProductos, String>("Descripcion_inven"));
-        colStock.setCellValueFactory(new PropertyValueFactory<RegistroProductos, Integer>("cantidad_inven"));
-        colCons.setCellValueFactory(new PropertyValueFactory<RegistroProductos, String>("tipoMaterial_inven"));
-        colPrecio.setCellValueFactory(new PropertyValueFactory<RegistroProductos, Double>("precio_inven"));
-        colKila.setCellValueFactory(new PropertyValueFactory<RegistroProductos, String>("kila_inven"));
+        ObservableList<Productos> list = getProductosList();
+        colID.setCellValueFactory(new PropertyValueFactory<Productos, String>("CP_inven"));
+        colDes.setCellValueFactory(new PropertyValueFactory<Productos, String>("Descripcion_inven"));
+        colStock.setCellValueFactory(new PropertyValueFactory<Productos, Integer>("cantidad_inven"));
+        colCons.setCellValueFactory(new PropertyValueFactory<Productos, String>("tipoMaterial_inven"));
+        colPrecio.setCellValueFactory(new PropertyValueFactory<Productos, Double>("precio_inven"));
+        colKila.setCellValueFactory(new PropertyValueFactory<Productos, String>("kila_inven"));
         TvProduc.getColumns().setAll(colID, colDes, colStock, colCons, colPrecio, colKila);
         TvProduc.getItems().setAll(list);
         
         TvProduc.setRowFactory(tv -> {
-            TableRow<RegistroProductos> myRow = new TableRow<>();
+            TableRow<Productos> myRow = new TableRow<>();
             myRow.setOnMouseClicked(event
                     -> {
                 if (event.getClickCount() == 1 && (!myRow.isEmpty())) {

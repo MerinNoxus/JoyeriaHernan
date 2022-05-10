@@ -1,7 +1,7 @@
 package Controller;
 
 import Conexion.ConexionSQL;
-import Model.RegistroProductos;
+import Model.Productos;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.sql.Connection;
@@ -35,25 +35,25 @@ public class ConsultasProductosController implements Initializable {
 
     PreparedStatement ps;
     @FXML
-    private TableView<RegistroProductos> TvProduc;
+    private TableView<Productos> TvProduc;
 
     @FXML
-    private TableColumn<RegistroProductos, String> colID;
+    private TableColumn<Productos, String> colID;
 
     @FXML
-    private TableColumn<RegistroProductos, String> colDes;
+    private TableColumn<Productos, String> colDes;
 
     @FXML
-    private TableColumn<RegistroProductos, Integer> colStock;
+    private TableColumn<Productos, Integer> colStock;
 
     @FXML
-    private TableColumn<RegistroProductos, String> colCons;
+    private TableColumn<Productos, String> colCons;
 
     @FXML
-    private TableColumn<RegistroProductos, Double> colPrecio;
+    private TableColumn<Productos, Double> colPrecio;
 
     @FXML
-    private TableColumn<RegistroProductos, String> colKila;
+    private TableColumn<Productos, String> colKila;
    // ObservableList<RegistroProductos> list;
     //ObservableList<RegistroProductos> normi;
     @FXML
@@ -80,7 +80,7 @@ public class ConsultasProductosController implements Initializable {
     @FXML
     private JFXTextField txtKila;
 
-    ObservableList<RegistroProductos> products = FXCollections.observableArrayList();
+    ObservableList<Productos> products = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -96,7 +96,7 @@ public class ConsultasProductosController implements Initializable {
                 String material = queO.getString("tipoMaterial_inven");
                 double precio = queO.getDouble("precio_inven");
                 String kt = queO.getString("kila_inven");
-                products.add(new RegistroProductos(id, des, can, material, precio, kt));
+                products.add(new Productos(id, des, can, material, precio, kt));
 
             }
             colID.setCellValueFactory(new PropertyValueFactory<>("CP_inven"));
@@ -108,7 +108,7 @@ public class ConsultasProductosController implements Initializable {
 
             TvProduc.setItems(products);
 
-            FilteredList<RegistroProductos> filterdata = new FilteredList<>(products, b -> true);
+            FilteredList<Productos> filterdata = new FilteredList<>(products, b -> true);
 
             txtsearch.textProperty().addListener((observable, oldValue, newValue) -> {
                 filterdata.setPredicate(registroProductos -> {
@@ -134,7 +134,7 @@ public class ConsultasProductosController implements Initializable {
 
             });
 
-            SortedList<RegistroProductos>sorted=new SortedList<>(filterdata);
+            SortedList<Productos>sorted=new SortedList<>(filterdata);
             sorted.comparatorProperty().bind(TvProduc.comparatorProperty());
             TvProduc.setItems(sorted);
         } catch (Exception e) {
@@ -151,9 +151,9 @@ public class ConsultasProductosController implements Initializable {
             String query = "SELECT * FROM inventarios";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(query);
-            RegistroProductos produc;
+            Productos produc;
             while (rs.next()) {
-                produc = new RegistroProductos(rs.getString("CP_inven"), rs.getString("Descripcion_inven"), rs.getInt("cantidad_inven"), rs.getString("tipoMaterial_inven"), rs.getInt("precio_inven"), rs.getString("kila_inven"));
+                produc = new Productos(rs.getString("CP_inven"), rs.getString("Descripcion_inven"), rs.getInt("cantidad_inven"), rs.getString("tipoMaterial_inven"), rs.getInt("precio_inven"), rs.getString("kila_inven"));
                 productosList.add(produc);
             }
         } catch (SQLException ex) {
