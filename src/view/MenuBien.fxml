@@ -122,7 +122,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </JFXButton>
-                        <JFXButton alignment="BOTTOM_LEFT" onMouseClicked="#update" prefHeight="28.0" prefWidth="121.0" ripplerFill="#219fff" text="Actualizar precios" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
+                        <JFXButton alignment="BOTTOM_LEFT" onMouseClicked="#update" prefHeight="28.0" prefWidth="121.0" ripplerFill="#219fff" text="Actualizar " textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
                            <font>
                               <Font name="Calibri Bold" size="15.0" />
                            </font>

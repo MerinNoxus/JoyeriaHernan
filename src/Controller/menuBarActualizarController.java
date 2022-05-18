@@ -1,4 +1,3 @@
-
 package Controller;
 
 import java.io.IOException;
@@ -16,7 +15,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 
 public class menuBarActualizarController implements Initializable {
-@FXML
+
+    @FXML
     private StackPane satck;
     @FXML
     private BorderPane border;
@@ -25,31 +25,38 @@ public class menuBarActualizarController implements Initializable {
     @FXML
     private Button btnPlata;
     @FXML
-    private Button btnOtros;
+    private Button btnClient;
     @FXML
     private Button btnTodos;
 
-       @FXML
+    @FXML
     void getOro(MouseEvent event) {
-          
+
+    }
+
+    @FXML
+    void getClient(MouseEvent event) {
+        Loadpage("/view/UpdateClientes");
     }
 
     @FXML
     void getTodo(MouseEvent event) {
         Loadpage("/view/updateProductos");
-               
+
     }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
- 
-    }    
-     private void Loadpage(String page){
-Parent root=null;
+
+    }
+
+    private void Loadpage(String page) {
+        Parent root = null;
         try {
-            root=FXMLLoader.load(getClass().getResource(page+".fxml"));
+            root = FXMLLoader.load(getClass().getResource(page + ".fxml"));
         } catch (IOException ex) {
             Logger.getLogger(MenuBienController.class.getName()).log(Level.SEVERE, null, ex);
         }
-border.setCenter(root);
-}
+        border.setCenter(root);
+    }
 }

@@ -21,7 +21,7 @@
                 <TableColumn fx:id="colID" prefWidth="119.0" text="Código Producto" />
                 <TableColumn fx:id="colDes" prefWidth="106.0" text="Descripción" />
                   <TableColumn fx:id="colStock" minWidth="3.0" prefWidth="51.0" text="Stock" />
-                  <TableColumn fx:id="colCons" prefWidth="97.0" text="Construcción" />
+                  <TableColumn fx:id="colCons" prefWidth="97.0" text="Material" />
                   <TableColumn fx:id="colPrecio" prefWidth="73.0" text="Precio" />
                   <TableColumn fx:id="colKila" prefWidth="79.0" text="Kila" />
               </columns>
@@ -44,7 +44,7 @@
                   <Font name="Tahoma Bold" size="15.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="txtCons" focusColor="WHITE" labelFloat="true" layoutX="31.0" layoutY="251.0" prefHeight="25.0" prefWidth="212.0" promptText="Construcción">
+            <JFXTextField fx:id="txtCons" focusColor="WHITE" labelFloat="true" layoutX="31.0" layoutY="251.0" prefHeight="25.0" prefWidth="212.0" promptText="Material">
                <font>
                   <Font name="Tahoma Bold" size="15.0" />
                </font>

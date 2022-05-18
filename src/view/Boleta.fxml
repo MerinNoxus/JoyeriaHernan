@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="663.0" prefWidth="843.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.BoletaController">
+   <children>
+      <Pane prefHeight="663.0" prefWidth="887.0" style="-fx-background-color: #FF6E5C;" styleClass="AnchorPane" stylesheets="@../CSS/styles.css">
+         <children>
+            <Label layoutX="230.0" layoutY="14.0" prefHeight="64.0" prefWidth="384.0" text="Joyería Hernández" textFill="WHITE">
+               <font>
+                  <Font name="Cambria Bold" size="43.0" />
+               </font>
+            </Label>
+            <HBox layoutX="2.0" layoutY="59.0" prefHeight="609.0" prefWidth="843.0">
+               <children>
+                  <Pane prefHeight="620.0" prefWidth="637.0">
+                     <children>
+                        <JFXTextField fx:id="txtNom" editable="false" focusColor="WHITE" labelFloat="true" layoutX="253.0" layoutY="70.0" onKeyTyped="#eventKey" prefHeight="29.0" prefWidth="212.0" promptText="Nombre(s)">
+                           <font>
+                              <Font name="Tahoma Bold" size="15.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="txtClientFre" editable="false" focusColor="WHITE" labelFloat="true" layoutX="25.0" layoutY="118.0" onKeyTyped="#eventKey" prefHeight="25.0" prefWidth="212.0" promptText="Clientes Frecuente">
+                           <font>
+                              <Font name="Tahoma Bold" size="15.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXTextField fx:id="txtID1" editable="false" focusColor="WHITE" labelFloat="true" layoutX="25.0" layoutY="70.0" prefHeight="25.0" prefWidth="212.0" promptText="Codigo de Cliente">
+                           <font>
+                              <Font name="Tahoma Bold" size="15.0" />
+                           </font>
+                        </JFXTextField>
+                        <JFXButton buttonType="RAISED" layoutX="481.0" layoutY="66.0" onMouseClicked="#btnSearchClient" prefHeight="16.0" prefWidth="100.0" ripplerFill="#9422ff" text="Buscar" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Imagenes/icons8_search_48px.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                        <JFXButton buttonType="RAISED" layoutX="473.0" layoutY="105.0" onMouseClicked="#btnAddProducts" prefHeight="22.0" prefWidth="142.0" ripplerFill="#9422ff" text="Productos" textFill="WHITE" wrapText="true">
+                           <graphic>
+                              <ImageView fitHeight="44.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Imagenes/icons8_add_shopping_cart_128px.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                        <TableView fx:id="TVDetalle" layoutX="53.0" layoutY="200.0" prefHeight="339.0" prefWidth="550.0">
+                          <columns>
+                            <TableColumn fx:id="colCodPro" prefWidth="125.0" text="Código de producto" />
+                            <TableColumn fx:id="colDes" prefWidth="84.0" text="Descripción" />
+                              <TableColumn fx:id="colStock" prefWidth="129.0" text="Número de articulos" />
+                              <TableColumn fx:id="colPrecioU" prefWidth="107.0" text="Precio Unitario" />
+                              <TableColumn fx:id="colPrecioVenta" prefWidth="102.0" text="Precio de venta" />
+                          </columns>
+                        </TableView>
+                        <JFXTextField fx:id="txtApe" editable="false" focusColor="WHITE" labelFloat="true" layoutX="253.0" layoutY="118.0" onKeyTyped="#eventKey" prefHeight="25.0" prefWidth="212.0" promptText="Apellidos">
+                           <font>
+                              <Font name="Tahoma Bold" size="15.0" />
+                           </font>
+                        </JFXTextField>
+                        <TextField fx:id="txtTotal" editable="false" layoutX="489.0" layoutY="549.0" prefHeight="46.0" prefWidth="117.0">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </TextField>
+                        <Label layoutX="389.0" layoutY="554.0" prefHeight="37.0" prefWidth="76.0" text="Total $" textFill="WHITE">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="663.0" prefWidth="210.0">
+                     <children>
+                        <Pane layoutX="-6.0" layoutY="-60.0" prefHeight="159.0" prefWidth="212.0" style="-fx-background-color: #8D96FD;" styleClass="boleta" stylesheets="@../CSS/styles.css">
+                           <children>
+                              <Label layoutX="21.0" layoutY="20.0" prefHeight="77.0" prefWidth="164.0" text="Boleta de Venta $" textFill="WHITE" wrapText="true">
+                                 <font>
+                                    <Font name="System Bold" size="26.0" />
+                                 </font>
+                              </Label>
+                              <JFXTextField fx:id="txtNumBol" focusColor="WHITE" labelFloat="true" layoutX="8.0" layoutY="107.0" onKeyTyped="#eventKey" prefHeight="29.0" prefWidth="191.0" promptText="Número de Boleta">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="15.0" />
+                                 </font>
+                              </JFXTextField>
+                           </children>
+                        </Pane>
+                        <JFXButton buttonType="RAISED" layoutX="8.0" layoutY="379.0" onAction="#btnCalculo" ripplerFill="#9422ff" text="Realizar cálculo" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="36.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Imagenes/icons8_cash_128px.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                        <JFXButton buttonType="RAISED" layoutX="8.0" layoutY="434.0" onAction="#btnDelete" ripplerFill="#9422ff" text="Eliminar" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="40.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Imagenes/icons8_Remove_48px.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                        <JFXButton buttonType="RAISED" layoutX="10.0" layoutY="490.0" onAction="#btnSell" ripplerFill="#9422ff" text="Realizar Venta" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="39.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Imagenes/icons8_money_mouth_face_96px.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                     </children>
+                  </Pane>
+               </children>
+            </HBox>
+            <TextField fx:id="txtFecha" editable="false" layoutX="31.0" layoutY="31.0" prefHeight="23.0" prefWidth="164.0">
+               <font>
+                  <Font name="Tahoma" size="15.0" />
+               </font>
+            </TextField>
+         </children>
+      </Pane>
+   </children>
+</HBox>

@@ -13,6 +13,8 @@ import java.sql.Statement;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -66,6 +68,8 @@ public class updateProductosController implements Initializable {
     @FXML
     private JFXTextField txtKila;
     
+    @FXML
+    private JFXTextField txtsearch;
  
     @FXML
     void Update(ActionEvent event) {
@@ -92,8 +96,8 @@ public class updateProductosController implements Initializable {
             ps.executeUpdate();
             ShowProducts();
         }catch(Exception es){
-        Alerts no=new Alerts();
-        no.mostrarAlertError(event, "Error al actualizar", "El campo no se ha podido actualizar");
+       Alerts no=new Alerts();
+        no.mostrarAlertInfo(event, "Recargue","Recargue la ventana de nuevo para efectuar los cambios");
         }
     
     }
@@ -152,6 +156,32 @@ public class updateProductosController implements Initializable {
             });
             return myRow;
         });
+         FilteredList<Productos> filterdata = new FilteredList<>(list, b -> true);
+
+            txtsearch.textProperty().addListener((observable, oldValue, newValue) -> {
+                filterdata.setPredicate(registroProductos -> {
+                    if(newValue.isEmpty()||newValue==""||newValue==null){
+                    return true;
+                    
+                    }
+                    String ser=newValue.toLowerCase();
+                    if(registroProductos.getDescripcion_inven().toLowerCase().indexOf(ser)>-1){
+                    return true;
+                    }else if(registroProductos.getCP_inven().toLowerCase().indexOf(ser)>-1){
+                    return true;
+                    }else if(registroProductos.getTipoMaterial_inven().toLowerCase().indexOf(ser)>-1){
+                    return true;
+                    }else if(registroProductos.getKila_inven().toLowerCase().indexOf(ser)>-1){
+                    return true;     
+                    }else  
+                    return false;
+                    
+                });
+
+            });
+              SortedList<Productos>sorted=new SortedList<>(filterdata);
+            sorted.comparatorProperty().bind(TvProduc.comparatorProperty());
+            TvProduc.setItems(sorted);
     }
     
     

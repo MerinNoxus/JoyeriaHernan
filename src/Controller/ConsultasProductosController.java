@@ -124,10 +124,8 @@ public class ConsultasProductosController implements Initializable {
                     }else if(registroProductos.getTipoMaterial_inven().toLowerCase().indexOf(ser)>-1){
                     return true;
                     }else if(registroProductos.getKila_inven().toLowerCase().indexOf(ser)>-1){
-                    return true;
-                    }else
-                        
-                    
+                    return true;     
+                    }else  
                     return false;
                     
                 });

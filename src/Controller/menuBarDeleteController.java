@@ -1,4 +1,3 @@
-
 package Controller;
 
 import java.io.IOException;
@@ -14,29 +13,33 @@ import javafx.scene.Parent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 
-public class menuBarDeleteController implements Initializable
-{
+public class menuBarDeleteController implements Initializable {
+
     @FXML
     private BorderPane boerderP;
-   
-    
-       @FXML
-    void getProductosEliminados(MouseEvent event) {
-           Loadpage("/view/DeleteProductos");
+
+    @FXML
+    void getClieDelete(MouseEvent event) {
+        Loadpage("/view/DeleteClientes");
     }
-    
- private void Loadpage(String page){
-Parent root=null;
+
+    @FXML
+    void getProductosEliminados(MouseEvent event) {
+        Loadpage("/view/DeleteProductos");
+    }
+
+    private void Loadpage(String page) {
+        Parent root = null;
         try {
-            root=FXMLLoader.load(getClass().getResource(page+".fxml"));
+            root = FXMLLoader.load(getClass().getResource(page + ".fxml"));
         } catch (IOException ex) {
             Logger.getLogger(MenuBienController.class.getName()).log(Level.SEVERE, null, ex);
         }
-boerderP.setCenter(root);
-}
+        boerderP.setCenter(root);
+    }
+
     @Override
-    public void initialize(URL url, ResourceBundle rb)
-    {
-       
-    }    
+    public void initialize(URL url, ResourceBundle rb) {
+
+    }
 }

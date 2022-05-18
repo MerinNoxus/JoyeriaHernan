@@ -12,6 +12,7 @@ public class Clientes {
         this.CC_clie = CC_clie;
         this.nombre_clie = nombre_clie;
         this.apellido_clie = apellido_clie;
+        this.isclieFrecuent=isclieFrecuent;
     }
 
     public String getIsclieFrecuent() {

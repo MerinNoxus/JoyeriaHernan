@@ -20,11 +20,11 @@ public void mostrarAlertError(ActionEvent event,String Title,String context) {
 }
  
 @FXML
-public  void mostrarAlertInfo(ActionEvent event) {
+public  void mostrarAlertInfo(ActionEvent event,String title,String context) {
     Alert alert = new Alert(Alert.AlertType.INFORMATION);
-    alert.setHeaderText(null);
-    alert.setTitle("Info");
-    alert.setContentText("Informacion sobre la aplicación");
+    //alert.setHeaderText(null);
+    alert.setTitle(title);
+    alert.setContentText(context);
     alert.showAndWait();
 }
  
