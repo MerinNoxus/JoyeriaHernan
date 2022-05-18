@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="876.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.UpdateClientesController">
+   <children>
+      <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="400.0" minWidth="400.0" prefHeight="680.0" prefWidth="883.0" style="-fx-background-color: #FF6E5C;" styleClass="AnchorPane" stylesheets="@../CSS/styles.css">
+         <children>
+            <TableView id="TvProduc" fx:id="TvClient" layoutX="288.0" layoutY="159.0" prefHeight="436.0" prefWidth="565.0">
+               <columns>
+                  <TableColumn fx:id="colID" prefWidth="139.0" text="Código Cliente" />
+                  <TableColumn fx:id="colNom" prefWidth="144.0" text="Nombre(s)" />
+                  <TableColumn fx:id="colApe" minWidth="3.0" prefWidth="159.0" text="Apellidos" />
+                  <TableColumn fx:id="colClietrFre" editable="false" prefWidth="122.0" text="Cliente Frecuente" />
+               </columns>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TableView>
+            <JFXTextField fx:id="txtID" editable="false" focusColor="WHITE" labelFloat="true" layoutX="31.0" layoutY="144.0" prefHeight="25.0" prefWidth="212.0">
+               <font>
+                  <Font name="Tahoma Bold" size="15.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="txtNom" focusColor="WHITE" labelFloat="true" layoutX="31.0" layoutY="195.0" onKeyTyped="#eventKey" prefHeight="25.0" prefWidth="212.0" promptText="Nombre(s)">
+               <font>
+                  <Font name="Tahoma Bold" size="15.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="txtApe" focusColor="WHITE" labelFloat="true" layoutX="31.0" layoutY="248.0" onKeyTyped="#eventKey" prefHeight="25.0" prefWidth="212.0" promptText="Apellidos">
+               <font>
+                  <Font name="Tahoma Bold" size="15.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="txtClientFre" focusColor="WHITE" labelFloat="true" layoutX="31.0" layoutY="312.0" onKeyTyped="#eventKey" prefHeight="25.0" prefWidth="212.0" promptText="Clientes Frecuente">
+               <font>
+                  <Font name="Tahoma Bold" size="15.0" />
+               </font>
+            </JFXTextField>
+            <Label alignment="CENTER" layoutX="245.0" layoutY="14.0" prefHeight="37.0" prefWidth="386.0" text="Actualizar Clientes">
+               <font>
+                  <Font name="Lucida Sans Demibold" size="31.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="btnInsert" buttonType="RAISED" layoutX="82.0" layoutY="387.0" onAction="#Insert" prefHeight="33.0" prefWidth="122.0" ripplerFill="#473dff" styleClass="btnacceder" stylesheets="@../CSS/styles.css" text="Actualizar">
+               <font>
+                  <Font name="Tahoma Bold" size="17.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXTextField fx:id="txtsearch" focusColor="#fcfcfc" labelFloat="true" layoutX="298.0" layoutY="77.0" prefHeight="32.0" prefWidth="356.0" promptText="Buscar Cliente" unFocusColor="#9971ff">
+               <font>
+                  <Font name="Arial Bold" size="16.0" />
+               </font>
+            </JFXTextField>
+            <ImageView fitHeight="32.0" fitWidth="40.0" layoutX="256.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/icons8_search_48px.png" />
+               </image>
+            </ImageView>
+         </children>
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+      </Pane>
+   </children>
+</HBox>

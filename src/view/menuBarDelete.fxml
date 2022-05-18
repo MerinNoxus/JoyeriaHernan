@@ -31,41 +31,11 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="btnBorrarBoletaCliente" mnemonicParsing="false" style="-fx-background-color: transparent;" styleClass="menubareliminar2" stylesheets="@../CSS/StyleEliminar.css" text="Cliente" HBox.hgrow="ALWAYS">
+                  <Button fx:id="btnBorrarBoletaCliente" mnemonicParsing="false" onMouseClicked="#getClieDelete" style="-fx-background-color: transparent;" styleClass="menubareliminar2" stylesheets="@../CSS/StyleEliminar.css" text="Cliente" HBox.hgrow="ALWAYS">
                      <graphic>
                         <ImageView fitHeight="32.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../Imagenes/icons8_person_48px.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button fx:id="btnBorrarCliFrec" mnemonicParsing="false" style="-fx-background-color: transparent;" styleClass="menubareliminar3" stylesheets="@../CSS/StyleEliminar.css" text="Cliente frecuente" HBox.hgrow="ALWAYS">
-                     <graphic>
-                        <ImageView fitHeight="32.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Imagenes/icons8_royal_48px.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button fx:id="btnBorrarFactura" mnemonicParsing="false" style="-fx-background-color: transparent;" styleClass="menubareliminar4" stylesheets="@../CSS/StyleEliminar.css" text="Factura" HBox.hgrow="ALWAYS">
-                     <graphic>
-                        <ImageView fitHeight="32.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Imagenes/icons8_policy_document_48px.png" />
                            </image>
                         </ImageView>
                      </graphic>

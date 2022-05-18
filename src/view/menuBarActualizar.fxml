@@ -19,6 +19,21 @@
                   <Insets left="80.0" />
                </padding>
                <children>
+                  <Button fx:id="btnClient" mnemonicParsing="false" onMouseClicked="#getClient" prefHeight="42.0" prefWidth="125.0" style="-fx-background-color: transparent;" styleClass="menubaractualizarprecios3" stylesheets="@../CSS/StyleActualizarPrecios.css" text="Clientes">
+                     <graphic>
+                        <ImageView fitHeight="32.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Imagenes/icons8_person_48px.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
                   <Button fx:id="btnOro" mnemonicParsing="false" onMouseClicked="#getOro" prefHeight="42.0" prefWidth="114.0" style="-fx-background-color: transparent;" styleClass="menubaractualizarprecios1" stylesheets="@../CSS/StyleActualizarPrecios.css" text="Oro">
                      <graphic>
                         <ImageView fitHeight="32.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">

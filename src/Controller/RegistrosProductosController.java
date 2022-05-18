@@ -20,7 +20,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import utilerias.GnerarID;
+import utilerias.GenerarIDProductos;
 
 public class RegistrosProductosController implements Initializable {
 
@@ -105,12 +105,12 @@ public class RegistrosProductosController implements Initializable {
     public void ShowProducts() {
 
         ObservableList<Productos> list = getProductosList();
-        colID.setCellValueFactory(new PropertyValueFactory<Productos, String>("CP_inven"));
-        colDes.setCellValueFactory(new PropertyValueFactory<Productos, String>("Descripcion_inven"));
-        colStock.setCellValueFactory(new PropertyValueFactory<Productos, Integer>("cantidad_inven"));
-        colCons.setCellValueFactory(new PropertyValueFactory<Productos, String>("tipoMaterial_inven"));
-        colPrecio.setCellValueFactory(new PropertyValueFactory<Productos, Double>("precio_inven"));
-        colKila.setCellValueFactory(new PropertyValueFactory<Productos, String>("kila_inven"));
+        colID.setCellValueFactory(new PropertyValueFactory<>("CP_inven"));
+        colDes.setCellValueFactory(new PropertyValueFactory<>("Descripcion_inven"));
+        colStock.setCellValueFactory(new PropertyValueFactory<>("cantidad_inven"));
+        colCons.setCellValueFactory(new PropertyValueFactory<>("tipoMaterial_inven"));
+        colPrecio.setCellValueFactory(new PropertyValueFactory<>("precio_inven"));
+        colKila.setCellValueFactory(new PropertyValueFactory<>("kila_inven"));
         TvProduc.getColumns().setAll(colID, colDes, colStock, colCons, colPrecio, colKila);
         TvProduc.getItems().setAll(list);
     }
@@ -129,7 +129,7 @@ public class RegistrosProductosController implements Initializable {
             if (c == null) {
                 txtID.setText("Pro0000001");
             } else {
-                GnerarID gen = new GnerarID();
+                GenerarIDProductos gen = new GenerarIDProductos();
                 gen.idProductos(c);
                 txtID.setText(gen.serie());
             }

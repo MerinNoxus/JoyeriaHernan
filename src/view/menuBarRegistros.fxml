@@ -16,7 +16,7 @@
          <top>
             <HBox alignment="TOP_CENTER" prefHeight="48.0" prefWidth="750.0" spacing="10.0" BorderPane.alignment="TOP_CENTER">
                <children>
-                  <Button fx:id="btnRegistroClientes" mnemonicParsing="false" prefHeight="42.0" prefWidth="232.0" style="-fx-background-color: transparent;" styleClass="menubaractualizarprecios1" stylesheets="@../CSS/StyleActualizarPrecios.css" text="Registro de clientes">
+                  <Button fx:id="btnRegistroClientes" mnemonicParsing="false" onMouseClicked="#getClientes" prefHeight="42.0" prefWidth="232.0" style="-fx-background-color: transparent;" styleClass="menubaractualizarprecios1" stylesheets="@../CSS/StyleActualizarPrecios.css" text="Registro de clientes">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -39,21 +39,6 @@
                         <ImageView fitHeight="32.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../Imagenes/icons8_Add_Product_48px.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button fx:id="btnRegistroClienteFrecuente" mnemonicParsing="false" prefHeight="42.0" prefWidth="289.0" style="-fx-background-color: transparent;" styleClass="menubaractualizarprecios3" stylesheets="@../CSS/StyleActualizarPrecios.css" text="Registro de cliente frecuente">
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font>
-                     <graphic>
-                        <ImageView fitHeight="32.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Imagenes/icons8_vip_48px.png" />
                            </image>
                         </ImageView>
                      </graphic>

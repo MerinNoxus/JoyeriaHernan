@@ -1,6 +1,6 @@
 package utilerias;
 
-public class GnerarID {
+public class GenerarIDProductos {
 
    private String codPro ="";
     private String dato;

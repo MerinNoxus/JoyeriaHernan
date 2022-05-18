@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="524.0" prefWidth="826.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.RegistroClientesController">
+   <children>
+      <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="400.0" minWidth="400.0" prefHeight="530.0" prefWidth="844.0" style="-fx-background-color: #FF6E5C;" styleClass="AnchorPane" stylesheets="@../CSS/styles.css">
+         <children>
+            <TableView id="TvProduc" fx:id="TvClient" layoutX="271.0" layoutY="58.0" prefHeight="445.0" prefWidth="529.0">
+               <columns>
+                  <TableColumn fx:id="colID" prefWidth="139.0" text="Código Cliente" />
+                  <TableColumn fx:id="colNom" prefWidth="144.0" text="Nombre(s)" />
+                  <TableColumn fx:id="colApe" minWidth="3.0" prefWidth="140.0" text="Apellidos" />
+                  <TableColumn fx:id="colClietrFre" editable="false" prefWidth="105.0" text="Cliente Frecuente" />
+               </columns>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TableView>
+            <JFXTextField fx:id="txtID" editable="false" focusColor="WHITE" labelFloat="true" layoutX="31.0" layoutY="94.0" prefHeight="25.0" prefWidth="212.0">
+               <font>
+                  <Font name="Tahoma Bold" size="15.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="txtNom" focusColor="WHITE" labelFloat="true" layoutX="31.0" layoutY="145.0" onKeyTyped="#eventKey" prefHeight="25.0" prefWidth="212.0" promptText="Nombre(s)">
+               <font>
+                  <Font name="Tahoma Bold" size="15.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="txtApe" focusColor="WHITE" labelFloat="true" layoutX="31.0" layoutY="198.0" onKeyTyped="#eventKey" prefHeight="25.0" prefWidth="212.0" promptText="Apellidos">
+               <font>
+                  <Font name="Tahoma Bold" size="15.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="txtClientFre" focusColor="WHITE" labelFloat="true" layoutX="31.0" layoutY="262.0" onKeyTyped="#eventKey" prefHeight="25.0" prefWidth="212.0" promptText="Clientes Frecuente">
+               <font>
+                  <Font name="Tahoma Bold" size="15.0" />
+               </font>
+            </JFXTextField>
+            <Label layoutX="256.0" layoutY="14.0" prefHeight="37.0" prefWidth="386.0" text="Registros  de Clientes">
+               <font>
+                  <Font name="Lucida Sans Demibold" size="31.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="btnInsert" buttonType="RAISED" layoutX="80.0" layoutY="414.0" onAction="#Insert" prefHeight="33.0" prefWidth="95.0" ripplerFill="#473dff" styleClass="btnacceder" stylesheets="@../CSS/styles.css" text="Insertar">
+               <font>
+                  <Font name="Tahoma Bold" size="17.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+         </children>
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+      </Pane>
+   </children>
+</HBox>

@@ -2,8 +2,6 @@ package Model;
 
 public class Productos {
 
-
-    
     private String CP_inven;
     private String Descripcion_inven;
     private Integer cantidad_inven;
