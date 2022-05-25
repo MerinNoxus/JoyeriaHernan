@@ -3,12 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/franp/Documents/NetBeansProjects/JoyeriaHernan/src/Controller/DeleteClientesController.java</file>
-            <file>file:/C:/Users/franp/Documents/NetBeansProjects/JoyeriaHernan/src/Controller/updateProductosController.java</file>
-            <file>file:/C:/Users/franp/Documents/NetBeansProjects/JoyeriaHernan/src/view/DeleteClientes.fxml</file>
-            <file>file:/C:/Users/franp/Documents/NetBeansProjects/JoyeriaHernan/src/Controller/DeleteProductosController.java</file>
-            <file>file:/C:/Users/franp/Documents/NetBeansProjects/JoyeriaHernan/src/Controller/menuBarDeleteController.java</file>
-            <file>file:/C:/Users/franp/Documents/NetBeansProjects/JoyeriaHernan/src/Controller/UpdateClientesController.java</file>
+            <file>file:/C:/Users/franp/Documents/NetBeansProjects/JoyeriaHernan/src/view/Boleta.fxml</file>
+            <file>file:/C:/Users/franp/Documents/NetBeansProjects/JoyeriaHernan/src/Model/Main.java</file>
+            <file>file:/C:/Users/franp/Documents/NetBeansProjects/JoyeriaHernan/src/Controller/ConsultasProductosController2.java</file>
+            <file>file:/C:/Users/franp/Documents/NetBeansProjects/JoyeriaHernan/src/Controller/BoletaController.java</file>
+            <file>file:/C:/Users/franp/Documents/NetBeansProjects/JoyeriaHernan/src/Model/DetalleBoletas.java</file>
         </group>
     </open-files>
 </project-private>

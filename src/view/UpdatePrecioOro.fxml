@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="345.0" prefWidth="815.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.UpdatePrecioOroController">
+   <children>
+      <Pane prefHeight="619.0" prefWidth="868.0" style="-fx-background-color: #FF6E5C;" styleClass="AnchorPane" stylesheets="@../CSS/styles.css">
+         <children>
+            <JFXComboBox fx:id="comboPrecios" focusColor="#ff9a47" layoutX="525.0" layoutY="156.0" prefHeight="25.0" prefWidth="230.0" promptText="Seleccione el Kilataje" unFocusColor="#4a32e3">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></JFXComboBox>
+            <JFXTextField fx:id="txtPrecios" labelFloat="true" layoutX="64.0" layoutY="152.0" prefHeight="25.0" prefWidth="141.0" promptText="Precio(Gramo) $">
+               <font>
+                  <Font name="Arial Bold" size="16.0" />
+               </font>
+            </JFXTextField>
+            <Label layoutX="210.0" layoutY="38.0" text="Actualizar Precios Oro">
+               <font>
+                  <Font name="Arial Bold" size="38.0" />
+               </font>
+            </Label>
+            <JFXButton buttonType="RAISED" layoutX="349.0" layoutY="227.0" onAction="#Actualiza" prefHeight="43.0" prefWidth="81.0" ripplerFill="#b847ff" styleClass="btnacceder" stylesheets="@../CSS/styles.css" text="Actualizar">
+               <font>
+                  <Font name="Arial Bold" size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+         </children>
+      </Pane>
+   </children>
+</HBox>

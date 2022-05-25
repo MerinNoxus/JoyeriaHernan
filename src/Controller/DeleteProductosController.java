@@ -22,67 +22,68 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class DeleteProductosController implements Initializable {
-
+    
     ConexionSQL cc = new ConexionSQL();
     Connection cn = cc.obtener_conexion();
     ActionEvent event;
     PreparedStatement ps;
     @FXML
     private TableView<Productos> TvProduc;
-
+    
     @FXML
     private TableColumn<Productos, String> colID;
-
+    
     @FXML
     private TableColumn<Productos, String> colDes;
-
+    
     @FXML
     private TableColumn<Productos, Integer> colStock;
-
+    
     @FXML
     private TableColumn<Productos, String> colCons;
-
+    
     @FXML
     private TableColumn<Productos, Double> colPrecio;
-
+    
     @FXML
     private TableColumn<Productos, String> colKila;
-
+    @FXML
+    private TableColumn<Productos, Double> colGramos;
+    @FXML
+    private JFXTextField txtGramos;
     @FXML
     private JFXTextField txtID1;
-
+    
     @FXML
     private JFXTextField txtDes;
-
+    
     @FXML
     private JFXTextField txtStck;
-
+    
     @FXML
     private JFXTextField txtCons;
-
+    
     @FXML
     private JFXTextField txtPrecio;
-
+    
     @FXML
     private JFXTextField txtKila;
     @FXML
     private JFXTextField txtsearch;
-
+    
     @FXML
     void Delete(ActionEvent event) {
-
-        Icon icono1 = new ImageIcon(getClass().getResource("/Imagenes/icons8_warning_shield_48px_1.png"));
+        
+      
         int res = JOptionPane.showConfirmDialog(null, "¿Estas seguro que deaseas eliminar?");
-
+        
         if (res == 0) {
             myIndex = TvProduc.getSelectionModel().getSelectedIndex();
             id = TvProduc.getItems().get(myIndex).getCP_inven();
-
+            
             try {
                 ps = cn.prepareStatement("delete from inventarios where CP_inven = ? ");
                 ps.setString(1, id);
@@ -96,23 +97,23 @@ public class DeleteProductosController implements Initializable {
             }
         }
     }
-
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ShowProducts();
     }
-
+    
     public ObservableList<Productos> getProductosList() {
-
+        
         ObservableList<Productos> productosList = FXCollections.observableArrayList();
-
+        
         try {
             String query = "SELECT * FROM inventarios";
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(query);
             Productos produc;
             while (rs.next()) {
-                produc = new Productos(rs.getString("CP_inven"), rs.getString("Descripcion_inven"), rs.getInt("cantidad_inven"), rs.getString("tipoMaterial_inven"), rs.getInt("precio_inven"), rs.getString("kila_inven"));
+                produc = new Productos(rs.getString("CP_inven"), rs.getString("Descripcion_inven"), rs.getInt("cantidad_inven"), rs.getString("tipoMaterial_inven"), rs.getInt("precio_inven"), rs.getString("kila_inven"), rs.getDouble("Gramos_inven"));
                 productosList.add(produc);
             }
         } catch (SQLException ex) {
@@ -120,19 +121,20 @@ public class DeleteProductosController implements Initializable {
         }
         return productosList;
     }
-
+    
     public void ShowProducts() {
-
+        
         ObservableList<Productos> list = getProductosList();
-        colID.setCellValueFactory(new PropertyValueFactory<Productos, String>("CP_inven"));
-        colDes.setCellValueFactory(new PropertyValueFactory<Productos, String>("Descripcion_inven"));
-        colStock.setCellValueFactory(new PropertyValueFactory<Productos, Integer>("cantidad_inven"));
-        colCons.setCellValueFactory(new PropertyValueFactory<Productos, String>("tipoMaterial_inven"));
-        colPrecio.setCellValueFactory(new PropertyValueFactory<Productos, Double>("precio_inven"));
-        colKila.setCellValueFactory(new PropertyValueFactory<Productos, String>("kila_inven"));
-        TvProduc.getColumns().setAll(colID, colDes, colStock, colCons, colPrecio, colKila);
+        colID.setCellValueFactory(new PropertyValueFactory<>("CP_inven"));
+        colDes.setCellValueFactory(new PropertyValueFactory<>("Descripcion_inven"));
+        colStock.setCellValueFactory(new PropertyValueFactory<>("cantidad_inven"));
+        colCons.setCellValueFactory(new PropertyValueFactory<>("tipoMaterial_inven"));
+        colPrecio.setCellValueFactory(new PropertyValueFactory<>("precio_inven"));
+        colKila.setCellValueFactory(new PropertyValueFactory<>("kila_inven"));
+                colGramos.setCellValueFactory(new PropertyValueFactory<>("Gramos_inven"));
+        TvProduc.getColumns().setAll(colID, colDes, colStock, colCons, colPrecio, colKila, colGramos);
         TvProduc.getItems().setAll(list);
-
+        
         TvProduc.setRowFactory(tv -> {
             TableRow<Productos> myRow = new TableRow<>();
             myRow.setOnMouseClicked(event
@@ -146,18 +148,19 @@ public class DeleteProductosController implements Initializable {
                     txtCons.setText(TvProduc.getItems().get(myIndex).getTipoMaterial_inven());
                     txtPrecio.setText(TvProduc.getItems().get(myIndex).getPrecio_inven() + "");
                     txtKila.setText(TvProduc.getItems().get(myIndex).getKila_inven());
-
+                    txtGramos.setText(TvProduc.getItems().get(myIndex).getGramos_inven() + "");
+                    
                 }
             });
             return myRow;
         });
         FilteredList<Productos> filterdata = new FilteredList<>(list, b -> true);
-
+        
         txtsearch.textProperty().addListener((observable, oldValue, newValue) -> {
             filterdata.setPredicate(registroProductos -> {
                 if (newValue.isEmpty() || newValue == "" || newValue == null) {
                     return true;
-
+                    
                 }
                 String ser = newValue.toLowerCase();
                 if (registroProductos.getDescripcion_inven().toLowerCase().indexOf(ser) > -1) {
@@ -171,16 +174,16 @@ public class DeleteProductosController implements Initializable {
                 } else {
                     return false;
                 }
-
+                
             });
-
+            
         });
         SortedList<Productos> sorted = new SortedList<>(filterdata);
         sorted.comparatorProperty().bind(TvProduc.comparatorProperty());
         TvProduc.setItems(sorted);
     }
-
+    
     int myIndex;
     String id;
-
+    
 }
