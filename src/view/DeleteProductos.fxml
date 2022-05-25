@@ -14,18 +14,19 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<HBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="581.0" prefWidth="858.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.DeleteProductosController">
+<HBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="581.0" prefWidth="899.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.DeleteProductosController">
    <children>
-      <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="400.0" minWidth="400.0" prefHeight="581.0" prefWidth="859.0" style="-fx-background-color: #FF6E5C;" styleClass="AnchorPane" stylesheets="@../CSS/styles.css">
+      <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="400.0" minWidth="400.0" prefHeight="581.0" prefWidth="903.0" style="-fx-background-color: #FF6E5C;" styleClass="AnchorPane" stylesheets="@../CSS/styles.css">
          <children>
-            <TableView id="TvProduc" fx:id="TvProduc" layoutX="295.0" layoutY="123.0" prefHeight="445.0" prefWidth="517.0">
+            <TableView id="TvProduc" fx:id="TvProduc" layoutX="254.0" layoutY="146.0" prefHeight="409.0" prefWidth="622.0">
                <columns>
                   <TableColumn fx:id="colID" prefWidth="119.0" text="Código Producto" />
                   <TableColumn fx:id="colDes" prefWidth="106.0" text="Descripción" />
                   <TableColumn fx:id="colStock" minWidth="3.0" prefWidth="51.0" text="Stock" />
-                  <TableColumn fx:id="colCons" prefWidth="97.0" text="Construcción" />
+                  <TableColumn fx:id="colCons" prefWidth="97.0" text="Material" />
                   <TableColumn fx:id="colPrecio" prefWidth="73.0" text="Precio" />
                   <TableColumn fx:id="colKila" prefWidth="79.0" text="Kila" />
+                  <TableColumn fx:id="colGramos" prefWidth="96.0" text="Peso(Gramos)" />
                </columns>
                <effect>
                   <DropShadow />
@@ -51,12 +52,12 @@
                   <Font name="Tahoma Bold" size="15.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="txtPrecio" editable="false" focusColor="WHITE" labelFloat="true" layoutX="31.0" layoutY="302.0" prefHeight="25.0" prefWidth="212.0" promptText="Precio">
+            <JFXTextField fx:id="txtPrecio" editable="false" focusColor="WHITE" labelFloat="true" layoutX="31.0" layoutY="405.0" prefHeight="25.0" prefWidth="212.0" promptText="Precio">
                <font>
                   <Font name="Tahoma Bold" size="15.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="txtKila" editable="false" focusColor="WHITE" labelFloat="true" layoutX="31.0" layoutY="355.0" prefHeight="25.0" prefWidth="212.0" promptText="Kila">
+            <JFXTextField fx:id="txtKila" editable="false" focusColor="WHITE" labelFloat="true" layoutX="31.0" layoutY="351.0" prefHeight="25.0" prefWidth="212.0" promptText="Kila">
                <font>
                   <Font name="Tahoma Bold" size="15.0" />
                </font>
@@ -66,7 +67,7 @@
                   <Font name="Lucida Sans Demibold" size="31.0" />
                </font>
             </Label>
-            <JFXButton buttonType="RAISED" layoutX="80.0" layoutY="414.0" onAction="#Delete" prefHeight="33.0" prefWidth="118.0" ripplerFill="#473dff" styleClass="btnacceder" stylesheets="@../CSS/styles.css" text="Eliminar">
+            <JFXButton buttonType="RAISED" layoutX="78.0" layoutY="460.0" onAction="#Delete" prefHeight="33.0" prefWidth="118.0" ripplerFill="#473dff" styleClass="btnacceder" stylesheets="@../CSS/styles.css" text="Eliminar">
                <font>
                   <Font name="Tahoma Bold" size="17.0" />
                </font>
@@ -74,16 +75,21 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXTextField fx:id="txtsearch" focusColor="#fcfcfc" labelFloat="true" layoutX="295.0" layoutY="62.0" prefHeight="32.0" prefWidth="356.0" promptText="Buscar Producto" unFocusColor="#9971ff">
+            <JFXTextField fx:id="txtsearch" focusColor="#fcfcfc" labelFloat="true" layoutX="328.0" layoutY="78.0" prefHeight="32.0" prefWidth="356.0" promptText="Buscar Producto" unFocusColor="#9971ff">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </JFXTextField>
-            <ImageView fitHeight="32.0" fitWidth="40.0" layoutX="248.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="32.0" fitWidth="40.0" layoutX="296.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Imagenes/icons8_search_48px.png" />
                </image>
             </ImageView>
+            <JFXTextField fx:id="txtGramos" editable="false" focusColor="WHITE" labelFloat="true" layoutX="31.0" layoutY="300.0" prefHeight="25.0" prefWidth="212.0" promptText="Peso(Gramos)">
+               <font>
+                  <Font name="Tahoma Bold" size="15.0" />
+               </font>
+            </JFXTextField>
          </children>
          <HBox.margin>
             <Insets />

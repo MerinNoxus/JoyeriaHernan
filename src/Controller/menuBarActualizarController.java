@@ -28,10 +28,10 @@ public class menuBarActualizarController implements Initializable {
     private Button btnClient;
     @FXML
     private Button btnTodos;
-
+ 
     @FXML
     void getOro(MouseEvent event) {
-
+        Loadpage("/view/UpdatePrecioOro");
     }
 
     @FXML

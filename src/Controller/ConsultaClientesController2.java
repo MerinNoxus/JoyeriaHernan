@@ -1,31 +1,36 @@
 package Controller;
 
-import Alerts.Alerts;
+import Conexion.ConexionSQL;
 import Model.Clientes;
 import com.jfoenix.controls.JFXTextField;
+import java.io.IOException;
 import java.net.URL;
-import Conexion.ConexionSQL;
-import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.input.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
+import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-public class UpdateClientesController implements Initializable {
+public class ConsultaClientesController2 implements Initializable {
 
+    BoletaController bolController;
     ConexionSQL cc = new ConexionSQL();
     Connection cn = cc.obtener_conexion();
     ActionEvent event;
@@ -34,6 +39,11 @@ public class UpdateClientesController implements Initializable {
     PreparedStatement ps;
     int myIndex;
     String id;
+    String idC;
+    String Nom;
+    String apes;
+    String clitnf;
+
     @FXML
     private TableView<Clientes> TvClient;
 
@@ -48,79 +58,13 @@ public class UpdateClientesController implements Initializable {
     @FXML
     private TableColumn<Clientes, String> colClietrFre;
     @FXML
-    private JFXTextField txtID;
-    @FXML
     private JFXTextField txtsearch;
-    @FXML
-    private JFXTextField txtNom;
-
-    @FXML
-    private JFXTextField txtApe;
-
-    @FXML
-    private JFXTextField txtClientFre;
-
-    @FXML
-    void Insert(ActionEvent event) {
-        String nombre, apellidos, clienteFre;
-        myIndex = TvClient.getSelectionModel().getSelectedIndex();
-        id = TvClient.getItems().get(myIndex).getCC_clie();
-
-        nombre = txtNom.getText();
-        apellidos = txtApe.getText();
-        clienteFre = txtClientFre.getText();
-        if(!txtID.getText().isEmpty()){
-        try {
-            ps = cn.prepareStatement("UPDATE clientess SET  nombre_clie = ?,apellido_clie = ? ,isclieFrecuent=? WHERE CC_clie =?");
-            ps.setString(1, nombre);
-            ps.setString(2, apellidos);
-            ps.setString(3, clienteFre);
-            ps.setString(4, id);
-              Alerts no = new Alerts();
-            no.mostrarAlertInfo(event, "Recargue", "Recargue la ventana de nuevo para efectuar los cambios");
-            ps.executeUpdate();
-            ShowClientes();
-            txtsearch.setText("");
-            
-        } catch (Exception es) {
-             Alerts menos=new Alerts();
-            menos.mostrarAlertError(event, "Error", "Ha ocurrido un error al actualizar , verifique bien los datos.");
-        }
-        }else{
-            Alerts menos=new Alerts();
-            menos.mostrarAlertError(event, "Error", "Ha ocurrido un error al actualizar , verifique bien los datos.");
-        }
-        
-    }
-
-    @FXML
-    void eventKey(KeyEvent event) {
-        Object evt = event.getSource();
-        if (evt.equals(txtNom)) {
-            if (!Character.isLetter(event.getCharacter().charAt(0)) && !event.getCharacter().equals(" ")) {
-                event.consume();
-            } else if (txtNom.getText().length() > 29) {
-                event.consume();
-            }
-        } else if (evt.equals(txtApe)) {
-            if (!Character.isLetter(event.getCharacter().charAt(0)) && !event.getCharacter().equals(" ")) {
-                event.consume();
-            } else if (txtApe.getText().length() > 29) {
-                event.consume();
-            }
-        } else if (evt.equals(txtClientFre)) {
-            if (!Character.isLetter(event.getCharacter().charAt(0))) {
-                event.consume();
-            }
-            if (txtClientFre.getText().length() > 1) {
-                event.consume();
-            }
-        }
-    }
-
+public void getInfoClient(BoletaController bolController){
+    System.out.println("listo ya lo llame");
+    this.bolController=bolController;
+}
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
+    public void initialize(URL url, ResourceBundle rb) {
         ShowClientes();
     }
 
@@ -152,7 +96,7 @@ public class UpdateClientesController implements Initializable {
         colClietrFre.setCellValueFactory(new PropertyValueFactory<>("isclieFrecuent"));
         TvClient.getColumns().setAll(colID, colNom, colApe, colClietrFre);
         TvClient.getItems().setAll(list);
-
+        
         TvClient.setRowFactory(tv -> {
             TableRow<Clientes> myRow = new TableRow<>();
             myRow.setOnMouseClicked(event
@@ -160,15 +104,19 @@ public class UpdateClientesController implements Initializable {
                 if (event.getClickCount() == 1 && (!myRow.isEmpty())) {
                     myIndex = TvClient.getSelectionModel().getSelectedIndex();
                     id = TvClient.getItems().get(myIndex).getCC_clie();
-                    txtID.setText(id);
-                    txtNom.setText(TvClient.getItems().get(myIndex).getNombre_clie());
-                    txtApe.setText(TvClient.getItems().get(myIndex).getApellido_clie() + "");
-                    txtClientFre.setText(TvClient.getItems().get(myIndex).getIsclieFrecuent());
-
+                    idC = id;
+                    Nom = TvClient.getItems().get(myIndex).getNombre_clie();
+                    clitnf = TvClient.getItems().get(myIndex).getIsclieFrecuent();
+                    apes = TvClient.getItems().get(myIndex).getApellido_clie() + "";
+              
+                bolController.getInfoClient( id, Nom, clitnf, apes);
                 }
+
             });
             return myRow;
+
         });
+         
         FilteredList<Clientes> filterdata = new FilteredList<>(list, b -> true);
         txtsearch.textProperty().addListener((observable, oldValue, newValue) -> {
             filterdata.setPredicate(clients -> {

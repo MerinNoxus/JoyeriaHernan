@@ -1,12 +1,15 @@
 package Controller;
 
+import Alerts.Alerts;
 import Conexion.ConexionSQL;
+
 import Model.Productos;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import java.sql.Statement;
 
@@ -20,14 +23,17 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import javafx.scene.input.KeyEvent;
+import javax.swing.JOptionPane;
 
-public class ConsultasProductosController implements Initializable {
+public class ConsultasProductosController2 implements Initializable {
 
+    BoletaController bolController;
     ConexionSQL cc = new ConexionSQL();
     Connection cn = cc.obtener_conexion();
     ActionEvent event;
@@ -58,15 +64,86 @@ public class ConsultasProductosController implements Initializable {
 
     @FXML
     private JFXTextField txtsearch;
+    int myIndex, fila;
 
-    @FXML
-    void busca(KeyEvent event) {
-
-    }
     @FXML
     private JFXTextField txtKila;
 
+    private String CP_deBol;
+    private String descripcion_deBol;
+    private int cantidad_deBol;
+    private double precioUnit_deBol;
+    private String material_deBol;
+    private String Kilates_deBol;
+
+    public void getPro(BoletaController bolController) {
+      //  System.out.println("listo ya envie productos");
+        this.bolController = bolController;
+    }
     ObservableList<Productos> products = FXCollections.observableArrayList();
+
+    @FXML
+    void sendCantidad(ActionEvent event) {
+        fila = TvProduc.getSelectionModel().getSelectedIndex();
+        // System.out.println(fila);
+        if (fila == -1) {
+            Alerts erro = new Alerts();
+            erro.mostrarAlertError(event, "Fila Vacia", "Debes de seleccionar una fila de la tabla");
+        } else {
+            CP_deBol = TvProduc.getItems().get(fila).getCP_inven();
+            descripcion_deBol = TvProduc.getItems().get(fila).getDescripcion_inven();
+            cantidad_deBol = TvProduc.getItems().get(fila).getCantidad_inven();
+            Kilates_deBol = TvProduc.getItems().get(fila).getKila_inven();
+            material_deBol = TvProduc.getItems().get(fila).getTipoMaterial_inven();
+            precioUnit_deBol = TvProduc.getItems().get(fila).getPrecio_inven();
+            int c = 0;
+            int j = 0;
+            double nada=0.0;
+            String cant = JOptionPane.showInputDialog("ingrese cantidad");
+            if ((cant.equals("")) || (cant.equals("0"))) {
+                JOptionPane.showMessageDialog(null, "Debe ingresar algun valor mayor que 0");
+            } else {
+                int canting = Integer.parseInt(cant);
+                int comp = Integer.parseInt(comparar(CP_deBol));
+                if (canting > comp) {
+                    JOptionPane.showMessageDialog(null, "Ud. no cuenta con el stock apropiado");
+                } else {
+                    for (int i = 0; i < bolController.TVDetalle2.getItems().size(); i++) {
+                        Object com = bolController.TVDetalle2.getItems().get(i).getCP_deBol();
+                        if (CP_deBol.equals(com)) {
+                            j = i;
+                            bolController.ModificaStock(j,CP_deBol, descripcion_deBol, canting, precioUnit_deBol, nada, Kilates_deBol,material_deBol);
+                         
+                          c =c+ 1;
+                          //  System.out.println(com + "asdadasd");
+                     
+                        }
+                      
+                    }
+                    if (c == 0) {
+                        bolController.AgregaProductos(CP_deBol, descripcion_deBol, canting, precioUnit_deBol, nada, Kilates_deBol,material_deBol);
+                    }
+
+                }
+            }
+
+        }
+    }
+
+    public String comparar(String id) {
+        String cant = "";
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM inventarios WHERE CP_inven='" + id + "'");
+            while (rs.next()) {
+                cant = rs.getString("cantidad_inven");
+            }
+
+        } catch (SQLException ex) {
+
+        }
+        return cant;
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -95,7 +172,26 @@ public class ConsultasProductosController implements Initializable {
             colKila.setCellValueFactory(new PropertyValueFactory<>("kila_inven"));
             colGramos.setCellValueFactory(new PropertyValueFactory<>("Gramos_inven"));
             TvProduc.setItems(products);
-
+            /*
+            TvProduc.setRowFactory(tv -> {
+                TableRow<Productos> myRow = new TableRow<>();
+                myRow.setOnMouseClicked(event
+                        -> {
+                    if (event.getClickCount() == 1 && (!myRow.isEmpty())) {
+                        //  myIndex = TvProduc.getSelectionModel().getSelectedIndex();
+                        //   id = TvProduc.getItems().get(myIndex).getCP_inven();
+                        //  txtID1.setText(id);
+                        //   txtDes.setText(TvProduc.getItems().get(myIndex).getDescripcion_inven());
+                        // txtStck.setText(TvProduc.getItems().get(myIndex).getCantidad_inven() + "");
+                        // txtCons.setText(TvProduc.getItems().get(myIndex).getTipoMaterial_inven());
+                        // txtPrecio.setText(TvProduc.getItems().get(myIndex).getPrecio_inven() + "");
+                        //    txtKila.setText(TvProduc.getItems().get(myIndex).getKila_inven());
+                        // txtGramos.setText(TvProduc.getItems().get(myIndex).getGramos_inven() + "");
+                    }
+                });
+                return myRow;
+            });
+             */
             FilteredList<Productos> filterdata = new FilteredList<>(products, b -> true);
 
             txtsearch.textProperty().addListener((observable, oldValue, newValue) -> {

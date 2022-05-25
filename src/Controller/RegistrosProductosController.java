@@ -20,13 +20,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import utilerias.GenerarIDProductos;
 
 public class RegistrosProductosController implements Initializable {
 
     ConexionSQL cc = new ConexionSQL();
     Connection cn = cc.obtener_conexion();
-    ActionEvent event ;
+    ActionEvent event;
     PreparedStatement ps;
     @FXML
     private TableView<Productos> TvProduc;
@@ -48,10 +49,12 @@ public class RegistrosProductosController implements Initializable {
 
     @FXML
     private TableColumn<Productos, String> colKila;
-
+    @FXML
+    private TableColumn<Productos, Double> colGramos;
     @FXML
     private JFXTextField txtID;
-
+    @FXML
+    private JFXTextField txtGramos;
     @FXML
     private JFXTextField txtDes;
 
@@ -69,10 +72,80 @@ public class RegistrosProductosController implements Initializable {
 
     @FXML
     private JFXButton btnInsert;
+    double kilates;
+    double gramos, precio, precio2;
+    String gram;
 
     @FXML
     void Insert(ActionEvent event) throws SQLException {
         insert();
+    }
+
+    @FXML
+    void eventKey(KeyEvent event) throws SQLException {
+        Object evt = event.getSource();
+        if (evt.equals(txtDes)) {
+            if (!Character.isLetter(event.getCharacter().charAt(0)) && !event.getCharacter().equals(" ")) {
+                event.consume();
+            } else if (txtDes.getText().length() > 50) {
+                event.consume();
+            }
+        } else if (evt.equals(txtStck)) {
+            if (!Character.isDigit(event.getCharacter().charAt(0))) {
+                event.consume();
+            } else if (txtStck.getText().length() > 4) {
+                event.consume();
+            }
+        } else if (evt.equals(txtCons)) {
+            if (!Character.isLetter(event.getCharacter().charAt(0)) && !event.getCharacter().equals(" ")) {
+                event.consume();
+            } else if (txtCons.getText().length() > 20) {
+                event.consume();
+            }
+            // } else if (evt.equals(txtGramos)) {
+            //gramos = Integer.valueOf(txtGramos.getText());
+            //System.out.println(gramos);
+            //  if (!Character.isDigit(event.getCharacter().charAt(0)) && !event.getCharacter().equals(".")) {
+            //    event.consume();
+            // } else if (txtGramos.getText().length() > 7) {
+            //   event.consume();
+            //}
+        } else if (evt.equals(txtPrecio)) {
+            if (!Character.isDigit(event.getCharacter().charAt(0)) && !event.getCharacter().equals(".")) {
+                event.consume();
+            } else if (txtPrecio.getText().length() > 10) {
+                event.consume();
+            }
+        }
+        GetDatos();
+    }
+
+    void GetDatos() throws SQLException {
+        gramos = Double.valueOf(txtGramos.getText());
+        if (txtKila.getText().equalsIgnoreCase("10K")) {
+            precio = queryprecio(gramos, "PrecioHoy10K");
+            txtPrecio.setText(String.valueOf(precio));
+
+        } else if (txtKila.getText().equalsIgnoreCase("12K")) {
+            precio = queryprecio(gramos, "PrecioHoyOro12K");
+            txtPrecio.setText(String.valueOf(precio));
+        } else if (txtKila.getText().equalsIgnoreCase("14K")) {
+            precio = queryprecio(gramos, "PrecioHoyOro14K");
+            txtPrecio.setText(String.valueOf(precio));
+        }else{
+            
+        }
+    }
+
+    double queryprecio(double gramos, String precioHoy) throws SQLException {
+        String sql = "SELECT * FROM PreciosHoy";
+        Statement st = cn.createStatement();
+        ResultSet rs = st.executeQuery(sql);
+        rs.next();
+        kilates = rs.getDouble(precioHoy);
+        precio = kilates * gramos;
+        double precio = Math.round(this.precio * 100.0) / 100.0;
+        return precio;
     }
 
     @Override
@@ -93,7 +166,7 @@ public class RegistrosProductosController implements Initializable {
             ResultSet rs = st.executeQuery(query);
             Productos produc;
             while (rs.next()) {
-                produc = new Productos(rs.getString("CP_inven"), rs.getString("Descripcion_inven"), rs.getInt("cantidad_inven"), rs.getString("tipoMaterial_inven"), rs.getInt("precio_inven"), rs.getString("kila_inven"));
+                produc = new Productos(rs.getString("CP_inven"), rs.getString("Descripcion_inven"), rs.getInt("cantidad_inven"), rs.getString("tipoMaterial_inven"), rs.getDouble("precio_inven"), rs.getString("kila_inven"), rs.getDouble("Gramos_inven"));
                 productosList.add(produc);
             }
         } catch (SQLException ex) {
@@ -111,7 +184,8 @@ public class RegistrosProductosController implements Initializable {
         colCons.setCellValueFactory(new PropertyValueFactory<>("tipoMaterial_inven"));
         colPrecio.setCellValueFactory(new PropertyValueFactory<>("precio_inven"));
         colKila.setCellValueFactory(new PropertyValueFactory<>("kila_inven"));
-        TvProduc.getColumns().setAll(colID, colDes, colStock, colCons, colPrecio, colKila);
+        colGramos.setCellValueFactory(new PropertyValueFactory<>("Gramos_inven"));
+        TvProduc.getColumns().setAll(colID, colDes, colStock, colCons, colPrecio, colKila, colGramos);
         TvProduc.getItems().setAll(list);
     }
 
@@ -141,20 +215,22 @@ public class RegistrosProductosController implements Initializable {
 
     private void insert() throws SQLException {
 
-        String insertSql = "INSERT INTO inventarios (CP_inven, Descripcion_inven, cantidad_inven, tipoMaterial_inven, precio_inven, kila_inven) VALUES (?,?,?,?,?,?)";
+        String insertSql = "INSERT INTO inventarios (CP_inven, Descripcion_inven, cantidad_inven, tipoMaterial_inven, precio_inven, kila_inven,Gramos_inven) VALUES (?,?,?,?,?,?,?)";
+        precio2 = Math.round(precio * 100.0) / 100.0;
+        double gramm = Math.round(gramos * 100.0) / 100.0;
         try {
             ps = cn.prepareCall(insertSql);
             ps.setString(1, txtID.getText());
             ps.setString(2, txtDes.getText());
             ps.setString(3, txtStck.getText());
             ps.setString(4, txtCons.getText());
-            ps.setString(5, txtPrecio.getText());
+            ps.setDouble(5, precio2);
             ps.setString(6, txtKila.getText());
-            
-            if(txtID.getText().isEmpty()){
-            Alerts vacio =new Alerts();
-                
-            vacio.mostrarAlertWarning(event, "Campo ID vacio", "Debes de agregar el campo del ID");
+            ps.setDouble(7, gramm);
+
+            if (txtID.getText().isEmpty()) {
+                Alerts vacio = new Alerts();
+                vacio.mostrarAlertWarning(event, "Campo ID vacio", "Debes de agregar el campo del ID");
             }
             ps.executeUpdate();
             ShowProducts();
@@ -165,7 +241,8 @@ public class RegistrosProductosController implements Initializable {
             txtKila.setText("");
             txtPrecio.setText("");
             txtStck.setText("");
-       } catch (Exception w) {
+            txtGramos.setText("");
+        } catch (Exception w) {
         }
 
     }
