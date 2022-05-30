@@ -71,7 +71,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </JFXButton>
-                        <TableView fx:id="TVDetalle2" layoutX="25.0" layoutY="191.0" prefHeight="339.0" prefWidth="697.0">
+                        <TableView fx:id="TVDetalle2" layoutX="25.0" layoutY="191.0" prefHeight="339.0" prefWidth="698.0">
                           <columns>
                             <TableColumn fx:id="colCodPro" prefWidth="125.0" text="Código de producto" />
                             <TableColumn fx:id="colDes" prefWidth="84.0" text="Descripción" />
@@ -80,6 +80,7 @@
                               <TableColumn fx:id="colKilates" prefWidth="75.0" text="KT" />
                               <TableColumn fx:id="colPrecioU" prefWidth="107.0" text="Precio Unitario" />
                               <TableColumn fx:id="colPrecioVenta" prefWidth="101.0" text="Precio de Venta" />
+                              <TableColumn fx:id="colX" prefWidth="75.0" text="Column X" visible="false" />
                           </columns>
                         </TableView>
                         <JFXTextField fx:id="txtApe" editable="false" focusColor="WHITE" labelFloat="true" layoutX="325.0" layoutY="115.0" prefHeight="25.0" prefWidth="212.0" promptText="Apellidos">
@@ -89,7 +90,7 @@
                         </JFXTextField>
                         <TextField fx:id="txtTotal" editable="false" layoutX="607.0" layoutY="549.0" prefHeight="46.0" prefWidth="117.0">
                            <font>
-                              <Font size="20.0" />
+                              <Font name="System Bold" size="20.0" />
                            </font>
                         </TextField>
                         <Label layoutX="527.0" layoutY="554.0" prefHeight="37.0" prefWidth="76.0" text="Total $" textFill="WHITE">
@@ -97,8 +98,21 @@
                               <Font size="25.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtDescuento" layoutX="421.0" layoutY="554.0" prefHeight="37.0" prefWidth="100.0" />
+                        <TextField fx:id="txtDescuento" layoutX="421.0" layoutY="554.0" prefHeight="37.0" prefWidth="100.0">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font></TextField>
                         <Label layoutX="299.0" layoutY="554.0" prefHeight="37.0" prefWidth="124.0" text="Descuento" textFill="WHITE">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtEfectivo" layoutX="139.0" layoutY="555.0" prefHeight="44.0" prefWidth="142.0">
+                           <font>
+                              <Font name="Arial Bold" size="20.0" />
+                           </font>
+                        </TextField>
+                        <Label alignment="CENTER_RIGHT" layoutX="45.0" layoutY="559.0" prefHeight="37.0" prefWidth="87.0" text="Efectivo" textFill="WHITE">
                            <font>
                               <Font size="25.0" />
                            </font>
@@ -128,7 +142,7 @@
                         </JFXTextField>
                      </children>
                   </Pane>
-                  <JFXButton buttonType="RAISED" layoutX="23.0" layoutY="362.0" onAction="#btnCalculo" ripplerFill="#9422ff" text="Realizar cálculo" textFill="WHITE">
+                  <JFXButton buttonType="RAISED" layoutX="1.0" layoutY="362.0" onAction="#btnCalculo" ripplerFill="#9422ff" text="Realizar cálculo" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="36.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -143,7 +157,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="26.0" layoutY="423.0" onAction="#btnDelete" ripplerFill="#9422ff" text="Eliminar" textFill="WHITE">
+                  <JFXButton buttonType="RAISED" layoutX="4.0" layoutY="423.0" onAction="#btnDelete" ripplerFill="#9422ff" text="Eliminar" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="40.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -158,7 +172,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="22.0" layoutY="481.0" onAction="#btnSell" ripplerFill="#9422ff" text="Realizar Venta" textFill="WHITE">
+                  <JFXButton buttonType="RAISED" layoutY="481.0" onAction="#btnSell" ripplerFill="#9422ff" text="Realizar Venta" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="39.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
                            <image>
