@@ -14,7 +14,7 @@
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0">
          <top>
-            <HBox prefHeight="48.0" prefWidth="900.0" spacing="10.0" BorderPane.alignment="CENTER">
+            <HBox alignment="TOP_CENTER" prefHeight="48.0" prefWidth="900.0" spacing="10.0" BorderPane.alignment="CENTER">
                <children>
                   <Button fx:id="btnClientes" mnemonicParsing="false" prefHeight="42.0" prefWidth="120.0" style="-fx-background-color: transparent;" styleClass="menubarconsultas1" stylesheets="@../CSS/StyleConsultas.css" text="Clientes">
                      <graphic>
@@ -33,28 +33,11 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="btnClientesFrecuentes" mnemonicParsing="false" prefHeight="42.0" prefWidth="199.0" style="-fx-background-color: transparent;" styleClass="menubarconsultas2" stylesheets="@../CSS/StyleConsultas.css" text="Clientes frecuentes">
+                  <Button fx:id="btnProductos" mnemonicParsing="false" prefHeight="42.0" prefWidth="140.0" style="-fx-background-color: transparent;" styleClass="menubarconsultas3" stylesheets="@../CSS/StyleConsultas.css" text="Productos">
                      <graphic>
                         <ImageView fitHeight="32.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../Imagenes/icons8_vip_48px.png" />
-                           </image>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor></ImageView>
-                     </graphic>
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button fx:id="btnFacturas" mnemonicParsing="false" prefHeight="42.0" prefWidth="123.0" style="-fx-background-color: transparent;" styleClass="menubarconsultas3" stylesheets="@../CSS/StyleConsultas.css" text="Facturas">
-                     <graphic>
-                        <ImageView fitHeight="32.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Imagenes/icons8_policy_document_48px.png" />
+                              <Image url="@../Imagenes/icons8_product_48px.png" />
                            </image>
                            <cursor>
                               <Cursor fx:constant="HAND" />

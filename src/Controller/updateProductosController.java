@@ -90,7 +90,7 @@ public class updateProductosController implements Initializable {
         cons = txtCons.getText();
         precio = Double.valueOf(txtPrecio.getText());
         kila = txtKila.getText();
-        gramos = Integer.valueOf(txtGramos.getText());
+        gramos = Double.valueOf(txtGramos.getText());
         try {
             ps = cn.prepareStatement("UPDATE inventarios SET  Descripcion_inven = ?,cantidad_inven = ? ,tipoMaterial_inven=?,precio_inven=?,kila_inven=?,Gramos_inven=? WHERE CP_inven =?");
             ps.setString(1, des);
@@ -99,7 +99,7 @@ public class updateProductosController implements Initializable {
             ps.setDouble(4, precio);
             ps.setString(5, kila);
             ps.setDouble(6, gramos);
-            ps.setString(6, id);
+            ps.setString(7, id);
             ps.executeUpdate();
             ShowProducts();
         } catch (Exception es) {

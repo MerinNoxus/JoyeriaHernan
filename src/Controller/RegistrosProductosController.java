@@ -125,7 +125,6 @@ public class RegistrosProductosController implements Initializable {
         if (txtKila.getText().equalsIgnoreCase("10K")) {
             precio = queryprecio(gramos, "PrecioHoy10K");
             txtPrecio.setText(String.valueOf(precio));
-
         } else if (txtKila.getText().equalsIgnoreCase("12K")) {
             precio = queryprecio(gramos, "PrecioHoyOro12K");
             txtPrecio.setText(String.valueOf(precio));
@@ -224,9 +223,19 @@ public class RegistrosProductosController implements Initializable {
             ps.setString(2, txtDes.getText());
             ps.setString(3, txtStck.getText());
             ps.setString(4, txtCons.getText());
-            ps.setDouble(5, precio2);
+            if(precio==0){
+                 ps.setDouble(5, Double.valueOf(txtPrecio.getText()));
+            
+            }else{
+                 ps.setDouble(5, precio2);
+            }
             ps.setString(6, txtKila.getText());
-            ps.setDouble(7, gramm);
+            if(gramm==0){
+             ps.setDouble(7, Double.valueOf(txtGramos.getText()));
+            }else{
+                 ps.setDouble(7, gramm);
+            }
+           
 
             if (txtID.getText().isEmpty()) {
                 Alerts vacio = new Alerts();

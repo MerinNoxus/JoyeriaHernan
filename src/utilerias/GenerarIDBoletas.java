@@ -8,8 +8,7 @@ public class GenerarIDBoletas {
     private int parnum;
 
     public void idBol(String dato) {
-        parnum = Integer.parseInt(dato.substring(3));
-        
+        parnum = Integer.parseInt(dato.substring(5));
         if ((parnum >= 1000000) || (parnum < 10000000)) {
             int can = cont + parnum;
             codBol = "BolJH" + can;
