@@ -16,7 +16,7 @@
          <top>
             <HBox alignment="TOP_CENTER" prefHeight="48.0" prefWidth="900.0" spacing="10.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="btnClientes" mnemonicParsing="false" prefHeight="42.0" prefWidth="120.0" style="-fx-background-color: transparent;" styleClass="menubarconsultas1" stylesheets="@../CSS/StyleConsultas.css" text="Clientes">
+                  <Button fx:id="btnClientes" mnemonicParsing="false" onAction="#ReporteClientes" prefHeight="42.0" prefWidth="120.0" style="-fx-background-color: transparent;" styleClass="menubarconsultas1" stylesheets="@../CSS/StyleConsultas.css" text="Clientes">
                      <graphic>
                         <ImageView fitHeight="32.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -33,7 +33,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="btnProductos" mnemonicParsing="false" prefHeight="42.0" prefWidth="140.0" style="-fx-background-color: transparent;" styleClass="menubarconsultas3" stylesheets="@../CSS/StyleConsultas.css" text="Productos">
+                  <Button fx:id="btnProductos" mnemonicParsing="false" onAction="#ReporteProductos" prefHeight="42.0" prefWidth="140.0" style="-fx-background-color: transparent;" styleClass="menubarconsultas3" stylesheets="@../CSS/StyleConsultas.css" text="Productos">
                      <graphic>
                         <ImageView fitHeight="32.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -50,7 +50,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="btnBoletas" mnemonicParsing="false" prefHeight="42.0" prefWidth="120.0" style="-fx-background-color: transparent;" styleClass="menubarconsultas4" stylesheets="@../CSS/StyleConsultas.css" text="Boletas">
+                  <Button fx:id="btnBoletas" mnemonicParsing="false" onAction="#ReporteBoletas" prefHeight="42.0" prefWidth="120.0" style="-fx-background-color: transparent;" styleClass="menubarconsultas4" stylesheets="@../CSS/StyleConsultas.css" text="Boletas">
                      <graphic>
                         <ImageView fitHeight="32.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                            <image>
