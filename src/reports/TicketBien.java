@@ -20,7 +20,11 @@ import javax.print.attribute.PrintRequestAttributeSet;
 import javax.swing.JOptionPane;
 
 public class TicketBien {
-private String nombre,idcliente,fecha,numbol;
+private String nombre,idcliente,fecha,numbol,des;
+
+    public void setDes(String des) {
+        this.des = des;
+    }
     BoletaController bol;
 
     public void setNombre(String nombre) {
@@ -112,6 +116,11 @@ private String nombre,idcliente,fecha,numbol;
             String cam = printer.alinharADireita(10, devolucion);
             printer.printTextWrap(filas + 20, 1, 5, 80, "Cambio : ");
             printer.printTextWrap(filas + 20, 1, 20, 80, "$" + cam);
+            
+            
+            String descuento=printer.alinharADireita(10, des);
+               printer.printTextWrap(filas + 20, 1, 5, 80, "Descuento : ");
+            printer.printTextWrap(filas + 20, 1, 20, 80, "$" + descuento);
 
             printer.printTextWrap(filas + 21, 1, 5, 120, "——————————–——————————–——————————–——————————–——–———–——–—–———–—");
             printer.printTextWrap(filas + 22, 1, 26, 80, "!Gracias por su preferencia!");

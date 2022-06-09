@@ -340,6 +340,7 @@ public class BoletaController implements Initializable, Runnable {
          si.setFecha(txtFecha.getText());
          si.setIdcliente(txtID1.getText());
          si.setNombre(txtNom.getText()+" "+txtApe.getText());
+         si.setDes(txtDescuento.getText());
           si.imprimirTicket(tam,txtTotal.getText(),txtEfectivo.getText(),String.valueOf(cambio));
           
              

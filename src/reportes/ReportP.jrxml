@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.11.0.final using JasperReports Library version 6.11.0-0c4056ccaa4d25a5a8c45672d2f764ea3498bebb  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Cherry_Landscape" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7a5c9b49-9dc5-422a-ac69-e92cf61ef530">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DBJoyeriaHernandez"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString>
+		<![CDATA[select * from inventarios]]>
+	</queryString>
+	<field name="CP_inven" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="CP_inven"/>
+		<property name="com.jaspersoft.studio.field.label" value="CP_inven"/>
+	</field>
+	<field name="Descripcion_inven" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Descripcion_inven"/>
+		<property name="com.jaspersoft.studio.field.label" value="Descripcion_inven"/>
+	</field>
+	<field name="cantidad_inven" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="cantidad_inven"/>
+		<property name="com.jaspersoft.studio.field.label" value="cantidad_inven"/>
+	</field>
+	<field name="tipoMaterial_inven" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="tipoMaterial_inven"/>
+		<property name="com.jaspersoft.studio.field.label" value="tipoMaterial_inven"/>
+	</field>
+	<field name="precio_inven" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="precio_inven"/>
+		<property name="com.jaspersoft.studio.field.label" value="precio_inven"/>
+	</field>
+	<field name="kila_inven" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="kila_inven"/>
+		<property name="com.jaspersoft.studio.field.label" value="kila_inven"/>
+	</field>
+	<field name="Gramos_inven" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="Gramos_inven"/>
+		<property name="com.jaspersoft.studio.field.label" value="Gramos_inven"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="102" splitType="Stretch">
+			<image onErrorType="Icon">
+				<reportElement x="725" y="0" width="77" height="102" uuid="651ccc4b-e999-40fe-bcbf-1f25bcfc98af"/>
+				<box topPadding="14" leftPadding="0" bottomPadding="0" rightPadding="0"/>
+				<imageExpression><![CDATA["src/Imagenes/LOGO2.png"]]></imageExpression>
+			</image>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="721" height="66" backcolor="#000000" uuid="d8d9e644-3a32-491d-97cb-a277aff17133"/>
+				<staticText>
+					<reportElement style="Title" x="0" y="0" width="300" height="66" uuid="27d8f6ee-f0a9-44f6-a160-1763c3b00f30"/>
+					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
+					<textElement verticalAlignment="Bottom">
+						<font size="39" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Joyería Hernández]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="SubTitle" x="320" y="20" width="390" height="46" uuid="cfa21334-0634-4605-9ea7-aca4981f67e4"/>
+					<textElement textAlignment="Right">
+						<font size="15" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Listado de todos los Productos agregados en el inventario con su respectivo código de producto,descripción,stock, entre otros]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="70" width="721" height="32" forecolor="#000000" backcolor="#CC0000" uuid="b0c895f6-6dbd-477d-9858-9ad66af087e1"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="560" y="0" width="144" height="20" forecolor="#FFFFFF" uuid="a33fce3b-20c1-4696-873a-fe134d1e7d88"/>
+					<textElement textAlignment="Right">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="130" height="30" forecolor="#659FFC" uuid="282dd368-d81d-497a-b88e-71035036e870"/>
+				<textElement>
+					<font fontName="Times New Roman" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Código de producto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="340" y="0" width="60" height="30" forecolor="#659FFC" uuid="1108d095-5451-44fb-b76a-2eba79841ed8"/>
+				<textElement>
+					<font fontName="Times New Roman" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Stock]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="0" width="100" height="30" forecolor="#659FFC" uuid="1d7609d1-b8df-4161-93e9-2475dcbb6f7d"/>
+				<textElement>
+					<font fontName="Times New Roman" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Material]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="500" y="0" width="120" height="30" forecolor="#659FFC" uuid="64727654-5829-4ce2-beab-fc2202e008bc"/>
+				<textElement>
+					<font fontName="Times New Roman" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Precio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="620" y="0" width="80" height="30" forecolor="#659FFC" uuid="79203739-8c85-4b19-8d9e-a00c0a9e537e"/>
+				<textElement>
+					<font fontName="Times New Roman" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[KT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="700" y="0" width="100" height="30" forecolor="#659FFC" uuid="33c9b539-adb9-4493-b283-5613d1aff245"/>
+				<textElement>
+					<font fontName="Times New Roman" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Gramos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="129" y="2" width="211" height="30" forecolor="#659FFC" uuid="5fdc22e6-4758-4d60-918f-6d66468f88c7"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descripción ]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="802" height="24" uuid="34a2ae4b-4055-476b-8676-d499f6af510b"/>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0"/>
+				<textField textAdjust="StretchHeight">
+					<reportElement x="0" y="0" width="129" height="24" uuid="fc43b3b7-2b28-4a8b-b3c8-941e8a824080">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6b3e9518-cd3f-4cb7-b968-05db20e5a41d"/>
+					</reportElement>
+					<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{CP_inven}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement x="130" y="-2" width="210" height="26" uuid="d22f3d3b-2dad-459b-bb6a-c5951c84f952">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0e1dc91a-bb5e-4e27-8bde-97b842266831"/>
+					</reportElement>
+					<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Descripcion_inven}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement x="340" y="-2" width="60" height="29" uuid="655479de-d44f-4cf3-9e53-e6942e395d51">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6ef09084-8792-47f0-8f9e-c99bba06ec21"/>
+					</reportElement>
+					<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{cantidad_inven}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement x="400" y="0" width="100" height="30" uuid="4b428f77-80b4-4946-9c8d-b416ab572282">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f1e5c6da-7b3e-4cf5-b503-f08f5ca5ead5"/>
+					</reportElement>
+					<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tipoMaterial_inven}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="500" y="-3" width="120" height="30" uuid="dd1f2c85-0c23-4c95-a482-fc4458dd94b9">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6d2afa65-643b-4eb0-97bf-b542ae77fec9"/>
+					</reportElement>
+					<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{precio_inven}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement x="620" y="1" width="80" height="23" uuid="a4add9ba-58a2-4e0d-b48e-3105a41e2fd9">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="332a9fd7-419a-462a-b3e5-89022839666d"/>
+					</reportElement>
+					<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{kila_inven}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement x="700" y="1" width="102" height="23" uuid="e6a58c7b-55d4-4500-b16b-5d4f4c3f913c">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a78caeb9-ad6c-4665-b870-a2304616454e"/>
+					</reportElement>
+					<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Gramos_inven}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="501ac6c4-e9d4-43cb-ba6b-7f2f44394cf3"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="25" forecolor="#D0B48E" backcolor="#000000" uuid="ffb10ec8-0371-4545-8eaa-96d62ad3cec0"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="757" y="3" width="40" height="20" forecolor="#FFFFFF" uuid="b5521ea6-5f36-4864-856f-58d0bcd011f2"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="677" y="3" width="80" height="20" forecolor="#FFFFFF" uuid="e625ea3c-1741-4cfe-81cf-fbbdd00162c8"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="3" width="197" height="20" forecolor="#FFFFFF" uuid="0c9f7e91-d3f5-47f9-82b7-0b2b3a43a5d6"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
